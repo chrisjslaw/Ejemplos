@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"> </header>
+<br>
+<div style="width:1100px; margin:0 auto;" class="container py-2 col-lg-12  align-items-center">
+<div align="center" class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora de Articulos</h5>
+        <a th:href="@{/bitacora/bitacoraArticulos}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+  <div align="center" class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora de Categorias</h5>
+        <a th:href="@{/bitacora/bitacoraCategorias}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora de Departamentos</h5>
+        <a th:href="@{/bitacora/bitacoraDepartamentos}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<br>
+<div style="width:1100px; margin:0 auto;" class="container py-2 col-lg-12  align-items-center">
+<div align="center" class="row">
+
+<div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora de Detalle Entradas</h5>
+        <a th:href="@{/bitacora/bitacoraDetalleEntradas}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+  <div align="center" class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora Detalle Requisiciones</h5>
+        <a th:href="@{/bitacora/bitacoraDetalleRequisiciones}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+  <div align="center" class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora de Entrada</h5>
+        <a th:href="@{/bitacora/bitacoraEntrada}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<br>
+<div style="width:1100px; margin:0 auto;" class="container py-2 col-lg-12  align-items-center">
+<div align="center" class="row">
+  
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora ISV</h5>
+        <a th:href="@{/bitacora/bitacoraIsvs}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+  
+  <div align="center" class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora Kardex</h5>
+        <a th:href="@{/bitacora/bitacoraKardex}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+  <div align="center" class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora de Proveedores</h5>
+        <a th:href="@{/bitacora/bitacoraProveedores}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<br>
+<div style="width:1100px; margin:0 auto;" class="container py-2 col-lg-12  align-items-center">
+<div align="center" class="row">
+ 
+ <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora Requisiciones</h5>
+        <a th:href="@{/bitacora/bitacoraRequisiciones}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+  <div align="center" class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora Roles</h5>
+        <a th:href="@{/bitacora/bitacoraRoles}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+  <div align="center" class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora de Unidades de Medida</h5>
+        <a th:href="@{/bitacora/bitacoraUnidadesMedida}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<br>
+
+<div style="width:1100px; margin:0 auto;" class="container py-2 col-lg-12  align-items-center">
+<div align="center" class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bitácora Usuarios</h5>
+        <a th:href="@{/bitacora/bitacoraUsuarios}" class="btn btn-primary">Ir a la Bítacora</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<br>
+
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:replace="categoria/customDTCategoria :: dtcate"></script>
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/sc-2.0.0/datatables.min.css" />
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/sc-2.0.0/datatables.min.js"></script>
+</body>
+</html>

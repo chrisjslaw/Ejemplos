@@ -1,0 +1,129 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                   <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    <br>
+                    
+                    <br>
+                </div>
+                
+               <div class="step">
+                    <h3><span class='section-heading'>Módulo de administración:</span></h3>
+                    
+                    <br>
+                </div><div class="step">
+                    <h3>Pantalla Administración de Usuarios</h3>
+                    <img th:src="@{/imgs/11.jpg}"/>
+                    <br>
+                    <p class="description"><p>La pantalla muestra la tabla de usuarios con la información de cada uno.</p>
+                    <br>
+                    <p>1-  Botón Crear usuario: desde aquí podremos acceder a crear un nuevo usuario en el sistema, ver prceso de creación de un nuevo usuario.</p>
+                    <p>2- Botones exportación: permite copiar y exportar la información de la tabla usuarios a pdf y excel.</p>
+                    <p>3- Campo de búsqueda para filtrar los datos por ejemplo: si escribimos chris solo aparecen los registros que contengan chris. </p>
+                    <p>4- Botón editar: permite editar la información del usuario, dar de baja, cambiar el rol, ver proceso para editar un usuario.</p>
+                    <p>5- Botón cambiar password: Permite cambiar el password/contraseña del usuario seleccionado, ver el proceso de cambio de contraseña.</p>
+                    <p>6- Ordenar columnas: al darle clic a las flecha cambiará el orden de la columna si es texto se ordenará alfabeticamente y si es numérico cambiará de mayor a menor, lo mismo para las fechas.</p></p>
+                </div><div class="step">
+                <br>
+                    
+                    <br>
+                    <img th:src="@{/imgs/12.jpg}" />
+                    <p class="description"><p>7-  Cantidad de registros: este mensaje muestra la cantidad de registros en la pagina de un total por ejemplo: del 1 al 10 de un total de 15 registros.</p>
+                    <p>8- Botones para la navegación de registros: estos botones nos ayudan a navegar entre los registros con facilidad.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3><span class='section-heading'>Formulario crear nuevo usuario</span></h3>
+                    
+                    
+                </div><div class="step">
+                <br>
+                    <h3>Proceso de creación de usuario.</h3>
+                    <img th:src="@{/imgs/13.jpg}"  />
+                    <br>
+                    <p class="description"><p><strong>Paso 1:</strong> primero rellenamos el campo Nombre Completo del usuario.</p>
+                    <br>
+                    <p><strong>Paso 2:</strong> en el campo Nombre de Usuario introducimos el nombre a utilizar para iniciar sesión.</p>
+                    <br>
+                    <p><strong>Paso 3</strong>: ingresamos la contraseña  que utilizará el usuario para iniciar sesión, debajo de este campo se encuentra la opción mostrar, la cual permite ver ambas contraseñas en caso de que hayamos olvidado lo que escribimos.</p>
+                    <br>
+                    <p><strong>Nota: La contraseña debe tener más de 8 caracteres y no debe contener espacios en blanco.</strong></p>
+                    <br>
+                    <p><strong>Paso 4:</strong> ingresamos de nuevo la contraseña para confirmar que es la misma que en el paso 3.</p>
+                    <br>
+                    <p><strong>Paso 5:</strong> ingresamos la respuesta a la primer pregunta de seguridad, la cual nos ayudará a validar que el usuario es dueño de dicha cuenta, en el proceso de cambio de contraseña.</p>
+                    <br>
+                    <p><strong>Paso 6:</strong> ingresamos la respuesta a la segunda pregunta de seguridad, la cual nos ayudará a validar que el usuario es dueño de dicha cuenta, en el proceso de cambio de contraseña.</p>
+                    <br>
+                    <p><strong>Paso 7:</strong> cambiamos el campo al estado activo para que la cuenta pueda ser usada.</p>
+                    <br>
+                    <p><strong>Paso 8:</strong> procedemos a asignarle un rol al usuario.</p>
+                    <br>
+                    <p><strong>Roles:</strong> </p><p><strong>Usuario:</strong> puede realizar requisiciones al administrador del sistema, puede ver el estado de sus requisiciones.</p><p><strong>Gerente_Financiero: </strong>este usuario puede realizar requisiciones y aprobar requisiciones hechas por los demás usuarios.</p><p><strong>Administrador:</strong> se encarga de gestionar el sistema y puede realizar reportes, realizar entradas y salidas(requisiciones), manejar proveedores, ingresar nuevos articulos, categorias y unidades de medida.</p><p><strong>Super_Administrador:</strong></p><p>tiene las mismas funciones que un administrador, pero puede gestionar los usuario y ver los registros de bitácora.</p>
+                    <br>
+                     <p><strong>Paso 9:</strong> en caso de querer regresar al listado de usuarios sin terminar de guardar el usuario nuevo, podemos darle clic al boton volver.</p>
+                <br>
+                <img th:src="@{/imgs/13b.jpg}"  />
+                <br>
+                <p><strong>Paso 10:</strong> Seleccionamos el departamento al que pertenece el usuario.</p>
+                <br>
+                    <p><strong>Paso 11</strong>: Introducimos el nombre del cargo del usuario.</p>
+                    <br>
+                    <p><strong>Paso 12: </strong>Al rellenar todos los campos  procedemos a darle click al boton crear usuario para finalizar la creación y guardarlo. </p></p>
+                    <br>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Formulario editar usuario</span></h3>
+                    <br>
+                    
+                </div><div class="step">
+                    <h3>Proceso para editar la información de un usuario</h3>
+                    <img th:src="@{/imgs/14.jpg}"/>
+                    <p class="description"><p>Una vez que hayamos dado click al botón editar en un registro de la lista de usuarios, se cargara un formulario con la información de dicho usuario para que esta pueda ser editada.</p><p>Luego procederemos a realizar estos pasos para poder editar la información exitosamente.</p>
+                    <br>
+                    <p><strong>Paso 1:</strong> Editamos los campos necesarios.</p><p><br><strong>Nota:</strong> en caso de querer dar de baja a un usuario simplemente cambiamos el campo Estado al valor "Inactivo", de igual forma si lo queremos reactivar cambiaremos el estado a "Activo".</p>
+                    <br>
+                    <p><strong>Paso 2:</strong> en caso de no querer guardar los cambios realizados y solo quiere regresar a la lista de usuarios, puede presionar el botón volver.</p>
+                    <br>
+                    <p><strong>Paso 3: </strong>Damos click a editar usuario para finalizar el proceso.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3><span class='section-heading'>Formulario editar contraseña</span></h3>
+                    <br>
+                    
+                </div><div class="step">
+                    <h3>Proceso de cambio de contraseña</h3>
+                    <img th:src="@{/imgs/15.jpg}" />
+                    <p class="description"><p>Una vez que hayamos dado click al botón cambiar en un registro de la lista de usuarios, se cargara un formulario que nos pedira la nueva contraseña para el usuario.</p><p>Luego procederemos a realizar estos pasos para poder cambiar la contraseña exitosamente.</p>
+                    <br>
+                    <p><strong>Paso 1:</strong> Ingresamos la contraseña nueva.</p><p><br><strong>Nota:</strong> Debajo de este campo tendremos la opción mostrar, la cual nos ayudara en caso de no recordar la contraseña que escribimos para poder confirmarla.</p>
+                    <br>
+                    <p><strong>Paso 2:</strong> Confirmamos la contraseña nueva, es obligatorio que la contraseña que escribimos en el campo Nueva Contraseña sea igual al de Confirmar Nueva Contraseña.</p>
+                    <br>
+                    <p><strong>Paso 3: </strong>En caso de querer cancelar el proceso podemos darle click al botón volver para regresar al listado de usuarios.</p>
+                    <br>
+                    <p><strong>Paso 4:</strong> Una vez esten rellenados los campos necesarios procedemos a darle click al botón Guardar Contraseña para guardar la nueva contraseña del usuario.</p></p>
+                <br>
+                <br>
+                <br><br><br>
+                </div>    
+                
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

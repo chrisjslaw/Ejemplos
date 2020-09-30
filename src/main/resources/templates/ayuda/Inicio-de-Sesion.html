@@ -1,0 +1,118 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                    <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    
+                    <br>
+                    
+                    <br>
+                </div><div class="step">
+                    <h3>Pantalla de inicio</h3>
+                    <img th:src="@{/imgs/1.jpg}" />
+                    <br>
+                    <p class="description"><p><strong>Sección 1:</strong> Botón de iniciar Sesión la cual nos llevara al formulario que nos pedira nuestro nombre de usuario y contraseña. <strong>Es necesario iniciar sesión para poder utilizar el sistema, en caso de no contar con usuario ni contraseña favor solicitarlo al jefe de informática.</strong></p>
+                    <br>
+                    <p><strong>Sección 2: </strong>Esta sección contiene la información Básica de AMHON, como ser: Misión, Visión, Valores y Las diferentes lineas estrategicas.</p>
+                    <br>
+                    <p><strong>Sección 3: </strong>esta sección se encuentra la ayuda.</p></p>
+                    <br>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Pantalla Inicio Sesión</span></h3>
+                    <br>
+                    
+                </div><div class="step">
+                    <h3>Proceso Iniciar Sesión: Llenar el formulario.</h3>
+                    <img th:src="@{/imgs/2.jpg}" />
+                    <p class="description"><p><strong>Paso1:</strong> Primero ingresamos el nombre de usuario con el cual se creo la cuenta.</p>
+                    <br>
+                    <p><strong>Paso 2</strong>: Ingresamos la contraseña que utilizamos al crear la cuenta.</p></p>
+                    <br>
+                    <p><strong>Paso 3</strong>: En caso de que hayamos olvidado la contraseña podemos seleccionar la opción Olvidé mi contraseña(Ver: Proceso cambio de contraseña).</p></p>
+                    <br>
+                </div><div class="step">
+                    <h3>Botón Iniciar sesión</h3>
+                    <img th:src="@{/imgs/3.jpg}" />
+                    <br>
+                    <p class="description"><p><strong>Paso 4</strong>:Una vez ingresado el nombre de usuario y contraseña le damos click al boton iniciar sesión, luego si nuestro nombre de usuario es correcto ingresaremos al sistema.</p></p>
+                </div>
+                <br>
+                <div class="step">
+                    <h3><span class='section-heading'>Pantalla Principal</span></h3>
+                    <br>
+                    
+                </div><div class="step">
+                    <h3>Mensaje de bienvenida de inicio de sesión correcto</h3>
+                    <img th:src="@{/imgs/4.jpg}" />
+                    <p class="description"><p><strong>Sección 1</strong>: En esta sección encontraremos el mensaje de bienvenida al usuario.</p>
+                    <br>
+                    <p><strong>Sección 2</strong>: Aqui encontraremos la barra de navegación, la cual contiene los enlaces para los diferentes módulos del sistema dependiendo de los permisos de usuario.</p>
+                    <br>
+                    <p><strong>Sección 3:</strong> Aquí encontraremos nuestro perfil con nuestro nombre de usuario y este nos dará acceso a poder cerrar sesión.</p>
+                    <br>
+                    <p><strong>Sección 4: </strong>Esta sección contiene la información Básica de AMHON, como ser: Misión, Visión, Valores y Las diferentes lineas estrategicas.</p></p>
+                <br>
+                <br><br><br><br><br>
+               </div>
+                    
+                    <div class="step">
+                    <h3><span class='section-heading'>Proceso de Cambio de contraseña</span></h3>
+                    <br>
+                    
+                </div><div class="step">
+                    <h3>Comenzando el proceso de Cambio de contraseña.</h3>
+                    <img th:src="@{/imgs/4cc.jpg}" />
+                    <p class="description"><p><strong>Paso1:</strong> Damos click al enlace "Olvidé mi contraseña" para comenzar el proceso de cambio de contraseña.</p>
+                    <br>
+  
+                   
+                </div>
+                
+                <div class="step">
+                    <h3>Paso 2: Comprobar Cuenta.</h3>
+                    <img th:src="@{/imgs/5cc.jpg}" />
+                    <p class="description">Debe ingresar la siguiente información para validar que usted es el propietario de dicha cuenta:<p><strong>1. Nombre de usuario:</strong>  En este campo escribiremos el nombre de usuario de nuestra cuenta.</p>
+                    <br>
+                    <p class="description"><p><strong>2. Pregunta de seguridad #1:</strong>  Aqui escribiremos la respuesta a la primer pregunta de seguridad, la cual ingresamos cuando creamos la cuenta.</p>
+                    <br>
+                    <p class="description"><p><strong>3. Pregunta de seguridad #2:</strong>  Aqui escribiremos la respuesta a la primer pregunta de seguridad, la cual ingresamos cuando creamos la cuenta.</p>
+                    <br>
+                     <p class="description"><p><strong>4.</strong>  Una vez igresados dichos datos procederemos a darle click al botón "Validar" para que se validen los datos que se ingresaron, en caso de ser validos se mostrara un error indicando si el usuario no existe o indicando que alguna de las respuestas a las preguntas es incorrecta.</p>
+                    <br>
+                    
+                </div>
+                
+                   <div class="step">
+                    <h3>Paso 3: Cambiar contraseña.</h3>
+                    <img th:src="@{/imgs/6cc.jpg}" />
+                    <p class="description">Si comprobamos que somos los dueños de la cuenta a la cual se le realizará un cambio de contraseña, se nos redireccionará al formulario para el cambio de contraseña, dentro del cual debemos llenar los siguientes campos:<p><strong>1.Nueva contraseña:</strong> En este campo escribiremos la nueva contraseña que vamos a utilizar para inciar sesión en el sistema, dicha contraseña debe tener un mínimo de 8 caracteres.</p>
+                    <br>
+                    <p class="description"><p><strong>2. Confirmar nueva contraseña:</strong>  En este campo confirmaremos y validaremos la nueva contraseña que se utilizara para iniciar sesión dentro del sistema, dicha contraseña debe ser la misma que la escrita anteriormente.</p>
+                    <br>
+                    <p class="description"><p><strong>3.</strong>  La casilla "Mostrar" nos permitira ver la contraseña para verificar el contenido de la misma.</p>
+                    <br>
+                     <p class="description"><p><strong>4.</strong>  Al terminar de escribir y validar la contraseña en los campos anteriores, procederemos a darle click al botón "Cambiar contraseña" para guardar nuestra nueva contraseña y se nos redireccionará al inicio de sesión, el cual nos mostrará un mensaje indicando que el cambio de contraseña fue exitoso.</p>
+                    <br>
+                    
+                     <br><br><br><br><br>
+                </div>
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

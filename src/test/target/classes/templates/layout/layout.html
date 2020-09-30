@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="es">
+<head th:fragment="head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+<title th:text="'SGS AMHON - '+${titulo}"></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.10/css/bootstrap-select.min.css" integrity="sha256-jwJEU4p1YdtymLFwAjYfam5Pj5NOnylms63k7LYQ9Jk=" crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/custom-style.css}">
+<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}">
+<link rel="stylesheet" th:href="@{/css/jquery.gridmanager-light.css}">
+<link rel="stylesheet" th:href="@{/css/jquery.gridmanager-light.css}">
+<link rel="stylesheet" th:href="@{/css/inputmask.min.css}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand"><img th:src="@{/img/logo.png}" width="140" height="50" class="d-inline-block align-top">
+			</a>
+		<a class="navbar-brand" th:href="@{/}">AMHON SGS</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					
+					
+					<li sec:authorize="hasRole('ROLE_Super_ADMIN')" class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false" >Administración</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/usuarios/listaUsuarios}">Administración Usuarios</a> 
+								<a class="dropdown-item" th:href="@{/departamento/listaDepartamentos}">Administración Departamentos</a>
+								<a class="dropdown-item" th:href="@{/bitacora/listaBitacoras}">Bitácora</a>
+								 <!-- <a class="dropdown-item" href="#">Administración
+								PEI/POA</a> <a class="dropdown-item" href="#">Administración
+								Gerencias, Departamentos y Unidades</a> <a class="dropdown-item"
+								href="#">Administración Actividades y Tareas</a> -->
+
+						</div></li>
+					<li sec:authorize="hasAnyRole('ROLE_Super_ADMIN','ROLE_ADMIN')" class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">Inventario</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a  class="dropdown-item" th:href="@{/invKardex/KardexGeneral}">Inventario General</a>
+							<a  class="dropdown-item" th:href="@{/entrada/listaEntradas}">Entradas</a>
+						</div></li>
+
+					<li sec:authorize="hasAnyRole('ROLE_Super_ADMIN','ROLE_ADMIN')" class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">Artículos</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/articulos/listaArticulos}">Gestionar Artículos</a> <a
+								class="dropdown-item" th:href="@{/categoria/listaCategorias}">Gestionar Categorias</a> <a
+								class="dropdown-item" th:href="@{/unidadesMedida/listaUnidadesMedida}">Gestionar Unidades de medida</a>
+								<a class="dropdown-item" th:href="@{/isv/cambiarISV}">Cambiar ISV</a>
+						</div></li>
+					<li sec:authorize="hasAnyRole('ROLE_Super_ADMIN','ROLE_ADMIN')" class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">Proveedores</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/proveedores/listaProveedores}">Gestionar proveedores</a> 
+						</div></li>
+						
+						<li sec:authorize="isAuthenticated()" class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Requisición</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a sec:authorize="hasAnyRole('ROLE_Super_ADMIN','ROLE_ADMIN')" class="dropdown-item" th:href="@{/requisicion/listaRequisiciones}">Listado Requisiciones</a>
+							 <a class="dropdown-item" th:href="@{/requisicion/misRequisiciones}">Mis Requisiciones</a>
+							 <a class="dropdown-item"
+								th:href="@{/requisicion/formRequisicion}">Realizar Requisición</a>
+								<a  sec:authorize="hasAnyRole('ROLE_Super_ADMIN','ROLE_ADMIN')" class="dropdown-item"
+								th:href="@{/requisicion/formRequisicionEspecial}">Realizar Requisición Especial</a> 
+								<a sec:authorize="hasAnyRole('ROLE_Super_ADMIN','ROLE_ADMIN','ROLE_Gerente_Financiero')" class="dropdown-item" th:href="@{/requisicion/listaRequisicionesNoAprob}">Aprobar Requisiciones</a>
+								<a sec:authorize="hasAnyRole('ROLE_Super_ADMIN','ROLE_ADMIN')" class="dropdown-item" th:href="@{/requisicion/listaRequisicionesAEntregar}">Entregar Requisiciones Aprobadas</a>
+						</div></li>
+
+					<li sec:authorize="hasAnyRole('ROLE_Super_ADMIN','ROLE_ADMIN')" class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Reportes y Gráficas</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/reportes/listadoReportes}">Listado de Reportes</a> <a
+								class="dropdown-item" th:href="@{/graficas/listadoGraficas}">Listado de Gráficas</a>
+						</div></li>
+
+					<li class="nav-item"><a class="nav-link" th:href="@{/ayuda/indice}">Ayuda <span
+							class="sr-only"></span>
+					</a></li>
+
+					<!-- 					<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a> -->
+					<!-- 					</li> -->
+				</ul>
+				<ul class="navbar-nav navbar-right px-2">
+					<li sec:authorize="!isAuthenticated()"><a
+						class="btn btn-outline-primary" th:href="@{/login}">Iniciar
+							Sesión</a></li>
+
+					<li sec:authorize="isAuthenticated()" class="dropdown"><a
+						class="btn btn-outline-primary dropdown-toggle" href="#"
+						role="button" id="dropdownMenuLink" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"><span
+							sec:authentication="name"></span></a>
+
+						<div class="dropdown-menu dropdown-menu-right"
+							aria-labelledby="dropdownMenuLink">
+
+							<form id="logoutForm" th:action="@{/logout}" method="post">
+								<button class="dropdown-item"
+									onclick="document.getElementById('logoutForm').submit();"
+									type="submit">Cerrar Sesión</button>
+							</form>
+						</div></li>
+				</ul>
+			</div>
+		</nav>
+		<hr>
+<br>
+<br>
+		<div class="alert alert-success" th:if="${success != null}"
+			th:text="${success}"></div>
+		<div class="alert alert-danger" th:if="${error != null}"
+		   th:text="${error}"></div>
+		<div class="alert alert-warning" th:if="${warning != null}"
+		    th:text="${warning}"></div>
+		<div class="alert alert-info" th:if="${info != null}"
+			th:text="${info}"></div>
+	</header>
+
+
+	<div class="container"></div>
+	<footer th:fragment="footer" class="footer text-center">
+		<div class="container">
+			<p sec:authorize="isAuthenticated()">
+				Usuario Logueado: <span sec:authentication="name"> <!--</span> |Roles: <span
+				sec:authentication="principal.authorities"></span> -->
+				</span> | Rol: <span sec:authorize="hasRole('ROLE_ADMIN')"
+					th:text="Administrador"></span> <span
+					sec:authorize="hasRole('ROLE_USER')" th:text="Usuario"></span>
+					<span
+					sec:authorize="hasRole('ROLE_Super_ADMIN')" th:text="Super_Administrador"></span>
+					<span
+					sec:authorize="hasRole('ROLE_Gerente_Financiero')" th:text="Gerente_Financiero"></span>
+			</p>
+			<!--foote_bottom_ul_amrc ends here-->
+			<p class="text-center">
+				&copy;2019 AMHON | Diseñado con IDE Eclipse + Spring Plugins (STS
+				Spring Tool).<br /> by Christian Sánchez.
+			</p>
+
+
+		</div>
+       <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+		<script th:src="@{/js/bootstrap-select.min.js}"></script>
+		<script th:src="@{/js/popper.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/jquery-ui.min.js}"></script>
+		<script th:src="@{/js/jquery.gridmanager.min.js}"></script>
+		<script th:src="@{/js/jquery.inputmask.bundle.js}"></script>
+		<script th:src="@{/js/inputmask.js}"></script>
+	</footer>
+
+
+</body>
+</html>

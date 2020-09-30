@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<script type="text/javascript" th:fragment="customjs">
+
+$(document).ready(function () {
+	var urlAjax =$("#url").val();
+	var fechaIn =$("#fechin").val();
+	var fechaFin =$("#fechfin").val();
+	$.ajax({
+			type : 'GET',
+			dataType: "json",
+			contentType: "application/json",
+			url: urlAjax,
+		   
+			success: function(result){
+				google.charts.load('current', {
+					'packages' : [ 'corechart','table' ]
+				});
+				google.charts.setOnLoadCallback(function(){
+					drawChart(result);
+				});
+			}
+		});
+		
+		function drawChart(result){
+			var data = new google.visualization.DataTable();
+			data.addColumn('string', '# factura');
+			data.addColumn('number',' Total entrada');
+			var dataArray=[];
+			$.each(result, function(i, obj){
+			   dataArray.push([obj.num_factura, obj.total]);
+			   
+			});
+			
+			
+
+			data.addRows(dataArray);
+			
+			var formatter = new google.visualization.NumberFormat({prefix: 'L. '});
+			  formatter.format(data, 1); // Apply formatter to second column
+			
+			var piechart_options ={
+					title: 'Pie Chart: Entradas por Número de factura',
+					pieSliceText: 'percent',
+					is3D: true,
+					
+					
+					
+			};
+			var piechart = new google.visualization.PieChart(document.getElementById('piechart_div'));
+	      piechart.draw(data, piechart_options);
+	      
+	      var view = new google.visualization.DataView(data);
+	      view.setColumns([0, 1]);
+	      
+	      var table = new google.visualization.Table(document.getElementById('table_sort_div'));
+	      table.draw(data, {width: '100%', height: '100%'});
+
+	      
+	      google.visualization.events.addListener(piechart, 'ready', function () {
+	    	  piechart_div.innerHTML = '<img src="' + barchart.getImageURI() + '">';
+	         
+	        });
+	      document.getElementById('pngpie').outerHTML = '<a href="' + piechart.getImageURI() + '">Version Imprimible</a>';
+	      google.visualization.events.addListener(table, 'sort',
+	    	      function(event) {
+	    	        data.sort([{column: event.column, desc: !event.ascending}]);
+	    	        chart.draw(data);
+	    	      });
+
+		};
+	
+		
+	});
+	
+$(document).ready(function () {
+	var urlAjax =$("#url").val();
+	  $.ajax({
+			type : 'GET',
+			dataType: "json",
+			contentType: "application/json",
+			url: urlAjax,
+			success: function(result){
+				google.charts.load('current', {
+					'packages' : [ 'corechart' ]
+				});
+				google.charts.setOnLoadCallback(function(){
+					drawChart(result);
+				});
+			}
+		});
+		
+		function drawChart(result){
+			var data2 = new google.visualization.DataTable();
+			data2.addColumn('string', 'Proveedor');
+			data2.addColumn('number',' Total entrada');
+			
+			var dataArray2=[];
+			$.each(result, function(i, obj){
+			   
+				$.each(obj.proveedor, function(j, obj2){
+					dataArray2.push([obj2.nombre_prov, obj.total]);
+			    });
+				
+			  
+			});
+			
+			data2.addRows(dataArray2);
+			
+			var formatter = new google.visualization.NumberFormat({prefix: 'L. '});
+			  formatter.format(data2, 1); // Apply formatter to second column
+
+	      var barchart_options ={
+	      		title: 'Barchart: Entradas por Fecha en valor de Lempiras',
+	      		
+	      		hAxis: {title: 'Fecha Entradas'},
+	      		vAxis: {format: 'L#,###.00'},
+	      			seriesType: 'bars',
+	      			
+	      };
+	      
+	      var barchart= new google.visualization.ComboChart(document.getElementById('barchart_div'));
+	     
+	     
+	      barchart.draw(data2, barchart_options);
+	      
+	      google.visualization.events.addListener(barchart, 'ready', function () {
+	    	  barchart_div.innerHTML = '<img src="' + barchart.getImageURI() + '">';
+	         
+	        });
+	      document.getElementById('png').outerHTML = '<a href="' + barchart.getImageURI() + '">Version Imprimible</a>';
+	      
+	      
+		};
+		$(window).resize(function(){
+			  drawChart1();
+			  drawChart2();
+			});
+		
+
+		
+		
+	});
+	
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+}
+</script>
+</body>
+</html>
+

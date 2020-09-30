@@ -1,0 +1,30 @@
+
+/*  para crear el chart responsive */
+ .chart {
+  width: 100%; 
+  min-height: 550px;
+}
+.row {
+  margin:0 !important;
+}
+@page {
+    size: auto;   /* auto is the initial value */
+    margin: 0;  /* this affects the margin in the printer settings */
+}
+
+.google-visualization-table-page-number {
+  font-size: 14px !important;
+}
+
+.google-visualization-table-td {
+text-align: center !important;
+}
+
+.google-visualization-table-table {
+	font-size: 16px !important;
+	}
+	
+	.goog-custom-button-inner-box {
+  font-size: 14px !important;
+}
+/*  hasta aqui chart */

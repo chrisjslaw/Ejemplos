@@ -1,0 +1,75 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                   <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    <br>
+                    
+                    <br>
+                </div>
+                
+               <div class="step">
+                    <h3><span class='section-heading'>Módulo articulos: Pantalla gestión de unidades de medida</span></h3>
+                    
+                    <br>
+                </div><div class="step">
+                    <h3>Pantalla Administración de Unidades de Medida</h3>
+                    <img th:src="@{/imgs/22.jpg}" />
+                    <p class="description"><p>La pantalla muestra la tabla de unidades de medida con la información de cada una.</p><p>1-  Botón Crear unidad de medida: desde aquí podremos acceder a crear un una nueva unidad de medida de articulo en el sistema, ver proceso de creación de unidad de medida.</p><p>2- Botones exportación: permite copiar y exportar la información de la tabla unidad de medida a pdf y excel.</p><p>3- Botón editar: permite editar la información del de la unidad de medida, ver proceso para editar la informacion de la unidad de medida.</p><p>4- Botón eliminar: permite eliminar la unidad de medida  de esa fila, ver proceso para eliminar una unidad de medida.</p><p> 5- Campo de búsqueda para filtrar los datos por ejemplo: si escribimos Resma solo aparecen los registros que contengan Resma.  </p><p>6- Ordenar columna: al darle clic a las flecha cambiará el orden de la columna si es texto se ordenará alfabéticamente y si es numérico cambiará de mayor a menor, lo mismo para las fechas.</p></p>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Formulario crear nueva unidad de medida</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Proceso de creación de unidad de medida.</h3>
+                    <img th:src="@{/imgs/23.jpg}" />
+                    <p class="description"><p><strong>Paso 1:</strong> ingresamos el nombre de la unidad de medida.</p><p><strong>Paso 2:</strong> ingresamos una breve descripción de la unidad de medida.</p><p><strong>Paso 3</strong>: en caso de no querer continuar con el proceso de guardado, puede regresar a la lista de unidades de medida dandole clic al botón volver.</p><p><strong>Paso 4</strong>: al finalizar de ingresar la información damos clic al botón crear Unidad para guardarlo.</p></p>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Formulario editar unidad de medida</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Proceso de editar información de una unidad de medida.</h3>
+                    <img th:src="@{/imgs/24.jpg}"  />
+                    <p class="description"><p><strong>Paso 1: </strong>editamos los datos deseados.</p><p><strong>Paso 2</strong>: en caso de no querer continuar con el proceso de guardado, puede regresar a la lista de Unidades de medida dandole clic al botón volver.</p><p><strong>Paso 3</strong>: al finalizar de editar la información damos clic al botón editar unidad para guardar los cambios realizados.</p></p>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Proceso eliminar una unidad</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Clic al botón eliminar</h3>
+                    <img th:src="@{/imgs/25.jpg}" />
+                    <p class="description"><p>Damos clic en el botón eliminar de la fila que deseamos borrar el registro.</p></p>
+                </div><div class="step">
+                    <h3>Confirmar eliminación</h3>
+                    <img th:src="@{/imgs/26.jpg}" alt="Confirmar eliminación Al darle clic al botón eliminar nos aparecerá un mensaje de confirmación, presionamos aceptar si lo deseamos eliminar, caso contrario le damos clic a cancelar." />
+                    <p class="description"><p>Al darle clic al botón eliminar nos aparecerá un mensaje de confirmación, presionamos aceptar si lo deseamos eliminar, caso contrario le damos clic a cancelar.</p></p>
+                </div><div class="step">
+                    <h3>Eliminación exitosa.</h3>
+                    <img th:src="@{/imgs/27.jpg}" alt="Eliminación exitosa. Después de aceptar eliminar el registro nos aparecerá el siguiente mensaje con el nombre de la Unidad de medida que fue eliminada con éxito." />
+                    <p class="description"><p>Después de aceptar eliminar el registro nos aparecerá el siguiente mensaje con el nombre de la Unidad de medida que fue eliminada con éxito siempre y cuando este no este ligado a otros registros.</p></p>
+                <br>
+                <br>
+                <br><br><br>
+                </div>    
+                
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

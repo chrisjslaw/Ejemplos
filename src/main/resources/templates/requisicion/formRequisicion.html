@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+
+<body>
+	<header th:replace="layout/layout :: header"> </header>
+
+	<div class="container py-4">
+		<div class="card bg-light border-dark">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+				<h4 class="card-title">
+					<a class="btn btn-light btn-xs"
+						th:href="@{/requisicion/listaRequisiciones}"
+						th:text="'&laquo; volver'"></a>
+				</h4>
+
+				<form th:action="@{/requisicion/formRequisicion/}" 
+					method="post">
+					<div class="form-group row">
+						<label for="Solicitante" class="col-sm-2 col-form-label"
+							th:text="'Solicitante'"></label>
+						<div class="col-sm-6">
+							<input name="respon"
+								th:value="${requisicion.solicitante}" th:field="*{requisicion.solicitante}"
+								class="form-control" disabled='disabled' />
+						</div>
+					</div>
+					<!-- se va para el path indicado, al metodo guardar que va estar mapeado a este path de tipo post en el controller osea request type y a su vez mapeado al obj factura -->
+					<div class="form-group row">
+						<label for="cargo" class="col-sm-2 col-form-label"
+							th:text="'Cargo'"></label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{requisicion.cargo}" class="form-control" disabled='disabled'/>
+						</div>
+					 </div>
+					 
+					 	<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Departamento</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{requisicion.departamento}" class="form-control" disabled='disabled' />
+						</div>
+					</div>
+					 
+					
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<input  name="tipoMov[]"
+								th:value="Salida" type="hidden"
+								class="form-control"  />
+
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="buscar_articulo" class="col-sm-2 col-form-label"
+							th:text="'Buscar articulo'"></label>
+						<div class="col-sm-6">
+							<input  type="text" name="buscar_articulo" id="buscar_articulo"
+								class="form-control" />
+						</div>
+					</div>
+					<br>
+                  <small id ="err"
+								></small>
+								<br>
+					<table th:replace="requisicion/plantilla-items :: itemsRequisicion"></table>
+
+					<table id="cargarItemArticulos"
+						class="table table-sm table-striped table-hover">
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Precio</th>
+								<th class="text-center">Cantidad</th>
+								<th class="text-center">Requisición<br>
+								Máxima</th>
+								<th>Total</th>
+								<th class="text-center">Eliminar</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					<h5>Total<span class="badge badge-secondary" id="gran_total">0</span></h5>
+
+                    <small id ="error" class="form-text" 
+								></small>
+								<br>
+                    
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<input id="submit-button" type="submit" th:value="${textoBoton}" 
+								class="btn btn-secondary" />
+						</div>
+					</div>
+
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+	<input type="hidden" id="url" th:value="@{'/requisicion/cargar-articulos/'}">
+	<script th:replace="requisicion/js/autocomplete-articulos :: javascript" nonce="2726c7f26c"></script>
+	<script th:replace="requisicion/js/autocomplete-articulos :: javascript" nonce="2726c7f26c"></script>
+</body>
+</html>

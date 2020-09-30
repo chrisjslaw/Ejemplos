@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+
+<body>
+	<header th:replace="layout/layout :: header"> </header>
+
+	<div class="container py-4">
+		<div class="card bg-light border-dark">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+				<h4 class="card-title">
+					<a class="btn btn-light btn-xs"
+						th:href="@{/entrada/listaEntradas}"
+						th:text="'&laquo; volver'"></a>
+				</h4>
+
+				<form th:action="@{/entrada/formEntrada/}" 
+					method="post">
+					<div class="form-group row">
+						<label for="responsable" class="col-sm-2 col-form-label"
+							th:text="'Responsable'"></label>
+						<div class="col-sm-6">
+							<input name="respon"
+								th:value="${entrada.responsbl}" th:field="*{entrada.responsbl}"
+								class="form-control" disabled='disabled' />
+						</div>
+					</div>
+					<!-- se va para el path indicado, al metodo guardar que va estar mapeado a este path de tipo post en el controller osea request type y a su vez mapeado al obj factura -->
+					<div class="form-group row">
+						<label for="num_factura" class="col-sm-2 col-form-label"
+							th:text="'Número de Factura'"></label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{entrada.num_factura}" id="test"  placeholder="ej. formato: 001-001-01-00000001" class="form-control" th:errorclass="'formc-control is-invalid'"/>
+							<div class="invalid-feedback" th:if="${#fields.hasErrors('entrada.num_factura')}" th:error="*{entrada.num_factura}"></div>
+						</div>
+					 </div>
+					<!--<div class="form-group row">
+						<label for="precio" class="col-sm-2 col-form-label"
+							th:text="'Precio Entrada/Salida'"></label>
+						<div class="col-sm-6">
+							<input type="number" step="0.01" th:field="*{detmov.precio}" class="form-control" th:errorclass="'formc-control is-invalid'"/>
+						</div>
+					</div> -->
+
+	                <div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Proveedor</b></label>
+						<div class="col-sm-6">
+							<select th:field="*{entrada.proveedor}"
+								class="form-control">
+									<option th:each="proveedor: ${proveedores}"
+										th:text="*{proveedor.nombre_prov}"
+										th:value="*{proveedor.id_prov}"></option>
+							</select> <!-- <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('id_prov')}" th:errors="*{id_prov}"></small> -->
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<input  name="tipoMov[]" type="hidden"
+								th:value="Entrada"
+								class="form-control"  />
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="buscar_articulo" class="col-sm-2 col-form-label"
+							th:text="'Buscar articulo'"></label>
+						<div class="col-sm-6">
+							<input type="text" name="buscar_articulo" id="buscar_articulo"
+								class="form-control" />
+						</div>
+					</div>
+
+					<table th:replace="entrada/plantilla-items :: itemsMovimiento"></table>
+
+					<table id="cargarItemProductos"
+						class="table table-sm table-striped table-hover" >
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Cantidad</th>
+								<th>Último Precio compra + ISV</th>
+								<th>Precio unitario</th>
+								<th>ISV</th>
+								<th>Precio con ISV</th>
+								<th>Total</th>
+								<th>Eliminar</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					<h5>Total<span class="badge badge-secondary" id="gran_total">0</span></h5>
+
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<input type="submit" th:value="${textoBoton}"
+								class="btn btn-secondary" />
+						</div>
+					</div>
+
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+	<input type="hidden" id="url" th:value="@{'/entrada/cargar-articulos/'}">
+	<script th:replace="entrada/js/autocomplete-articulos :: javascript" nonce="2726c7f26c"></script>
+	<script th:src="@{/js/jquery.inputmask.min.js}"></script>
+	
+</body>
+</html>

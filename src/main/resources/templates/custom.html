@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<script type="text/javascript" th:fragment="customjs">
+
+$( document ).ready( function (){ 
+  $( "form" ).submit(function(event){
+        if ($("#pw").length() !== $("#pwc").val() ){
+        	$("#pw").css("border-color", "red");
+        	$("#pwc").css("border-color", "red");
+        	$('#err').text('Las Contrasenas no coinciden');
+        	event.preventDefault();
+        }else{
+        	$('#err').text('');
+        }
+        
+        });
+  
+
+ 
+  $("#chckbx").change(function(){
+	  if($(this).is(":checked")){
+	   $("#pw").attr("type","text");
+	   $("#pwc").attr("type","text");
+	 } else {
+	  $("#pw").attr("type","password");
+	  $("#pwc").attr("type","password");
+	 }
+	 });
+      
+    });
+    
+    
+    
+var $password1 = $("#pw"),
+$password2 = $("#pwc"),
+$statusMessage = $("#err"),
+$statusMessage2 = $("#succ"),
+$submitButton = $('#submit-button');
+
+function validate() {
+
+if($password1.val() == $password2.val()) {
+     $statusMessage2.text("Los Passwords Coinciden!");
+     $statusMessage.text("");
+     $submitButton.prop('disabled', false);
+}
+else {
+     $statusMessage.text("Los Passwords No Coinciden!");  
+     $statusMessage2.text("");  
+     $submitButton.prop('disabled', true);
+}
+}
+
+</script>
+</body>
+</html>

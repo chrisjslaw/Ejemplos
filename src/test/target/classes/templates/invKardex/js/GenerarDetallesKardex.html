@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<script type="text/javascript" th:fragment="Generador">
+
+$(document).ready(function() {
+
+	/* var sum=0;
+	$('.cant').each(function() {  
+	 sum += parseFloat($(this).text().replace(/,/g, ''), 10);  
+	}); 
+	$('#existencia').text(sum.toFixed(2)); */
+	var total = 0.;
+	/* Localizamos las filas de datos */
+	var filas = $('table tbody tr');
+	/* Por cada fila sumamos los datos de la primera y segunda columna */
+	filas.each(function (indice) {
+	  /* Localizamos las celdas de datos */
+	  var celdas = $( this ).find('td');
+	  /* Si son valores numéricos y existe la tercera columna */
+	  if (
+	    ! isNaN(celdas[3].innerText)
+	  &&
+	    ! isNaN(celdas[6].innerText)
+	  &&
+	    celdas[9] !== undefined
+	  ) {
+		  var $this = $(this);
+		  valu = total;
+		  if(celdas[2].innerText=="Salida"){
+			  var suma = parseFloat(celdas[6].innerText)-parseFloat(celdas[3].innerText);
+			    celdas[6].innerText = suma+valu;
+			    total += suma;
+			   
+			    
+			    celdas[6].innerText = total;
+			    
+			    console.log('obtener anterior',valu);
+			  
+		  }
+		  
+		  if(celdas[2].innerText=="Entrada"){
+			  /* Calculamos el producto, mostramos el resultado y lo agregamos al total */
+			    var suma = parseFloat(celdas[3].innerText)+parseFloat(celdas[6].innerText);
+			    celdas[6].innerText = suma+valu;
+			    total += suma;
+			    
+			    celdas[6].innerText = total;
+			  
+		  }
+	   
+	    
+	    console.log('obtener anterior',valu);
+	    
+	  }
+	 
+	});
+	
+	
+	/*Funcion para costo inventario total*/
+	totcost=0.;
+	filas.each(function (indice) {
+		  /* Localizamos las celdas de datos */
+		  var celdas = $( this ).find('td');
+		  /* Si son valores numéricos y existe la tercera columna */
+		  if (
+		    ! isNaN(celdas[5].innerText)
+		  &&
+		    ! isNaN(celdas[8].innerText)
+		  &&
+		    celdas[9] !== undefined
+		  ) {
+			  var $this = $(this);
+			  valu = totcost;
+			  
+		     if(celdas[2].innerText=="Salida"){
+				  var sumacost = parseFloat(celdas[8].innerText)-parseInteger(celdas[5].innerText);
+				    celdas[8].innerText = sumacost+valu;
+				    totcost = sumacost;
+				   
+				   
+				  
+			  }
+		     
+			  
+		    /* Calculamos el producto, mostramos el resultado y lo agregamos al total */
+		    var sumacost = parseInt(celdas[5].innerText)+parseInt(celdas[8].innerText);
+		    celdas[8].innerText = sumacost+valu;
+		    totcost += sumacost;
+		   
+		    
+		    celdas[8].innerText = totcost;
+		    
+		    console.log('obtener anterior',valu);
+		    
+		  }
+		 
+		});
+
+	
+	totprom=0.;
+	filas.each(function (indice) {
+		  /* Localizamos las celdas de datos */
+		  var celdas = $( this ).find('td');
+		  /* Si son valores numéricos y existe la tercera columna */
+		  if (
+		    ! isNaN(celdas[6].innerText)
+		  &&
+		    ! isNaN(celdas[8].innerText)
+		  &&
+		    celdas[9] !== undefined
+		  ) {
+			  var $this = $(this);
+			  valu = totprom;
+			  
+			  if(celdas[2].innerText=="Salida"){
+				  celdas[7].innerText = totprom; 
+				   
+				  
+			  }
+			  if(celdas[2].innerText=="Entrada"){
+			  /* Calculamos el producto, mostramos el resultado y lo agregamos al total */
+		    var sumaprom = parseFloat(celdas[8].innerText)/parseFloat(celdas[6].innerText);
+		    celdas[7].innerText = sumaprom;
+		    totprom = sumaprom;
+		   
+		    celdas[7].innerText = totprom;
+		    
+		    console.log('obtener promedio',valu);
+			  }
+			  
+			 
+		  }
+		 
+		});
+	
+	totexis=0.;
+	filas.each(function (indice) {
+		  /* Localizamos las celdas de datos */
+		  var celdas = $( this ).find('td');
+		  /* Si son valores numéricos y existe la tercera columna */
+		  if (
+		    ! isNaN(celdas[3].innerText)
+		  &&
+		    celdas[9] !== undefined
+		  ) {
+			  
+			  if(celdas[2].innerText=="Salida"){
+				  var sumaexis = parseFloat(celdas[3].innerText);
+				    totexis -= sumaexis;
+				   
+				  
+			  }
+			  
+			  if(celdas[2].innerText=="Entrada"){
+				  /* Calculamos el producto, mostramos el resultado y lo agregamos al total */
+				    var sumaexis = parseFloat(celdas[3].innerText);
+				    totexis += sumaexis;
+				    
+				    console.log('obtener total exis',totexis);
+				   
+				  
+			  }
+		   
+		  }
+		});
+		/* Mostramos la salida */
+	$("#total_existencias").html(totexis);
+	
+	});
+	
+
+   
+</script>
+</body>
+</html>

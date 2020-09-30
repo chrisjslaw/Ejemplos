@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<table th:fragment="itemsMovimiento" class="d-none">
+
+		<tbody id="plantillaItemsMovimiento">
+			<tr id="row_{ID}">
+				<td class="d-none"><input type="hidden" value="{ID}"
+					name="item_id[]"/></td>
+					<td class="d-none"><input type="hidden" th:value="${isv.valor}" th:field="*{isv.valor}"
+					id="isv_"/></td>
+				<td >{NOMBRE}</td>
+				<td><input type="number" value="1" name="cantidad[]" min="1" max="9999"
+					id="cantidad_{ID}" class="form-control col-sm-6" onchange="itemsHelper.calcularImporte({ID}, this.value);" /></td>
+					<td style = "text-align: center;">{UPRECIO}</td>
+					<td><input type="number" value="0" step="0.01" name="precio[]"
+					id="precio_{ID}" class="form-control col-sm-6" onchange="itemsHelper.calcularImportePrec({ID}, this.value);"/></td>
+					<td align="center"><input id="check_{ID}" type="checkbox" onchange="itemsHelper.calcularImporteCheck({ID});" checked /></td>
+					<td align="center"><span id="total_isv_{ID}" name="precioIsv[]">0</span></td>
+					<td class="d-none"><input type="text"  name="precioIsv[]"
+					id="precioIsv_{ID}" /></td>
+					<td><span id="total_importe_{ID}">0</span></td>
+					<td align="center"><a href="#" class="btn btn-danger btn-xs" onclick="itemsHelper.eliminarLineaFactura({ID});">x</a></td>
+			</tr>
+
+		</tbody>
+	</table>
+
+</body>
+</html>

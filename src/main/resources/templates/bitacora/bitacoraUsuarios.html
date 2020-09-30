@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"> </header>
+
+	<div class="container py-4">
+		<div class="card bg-light border-dark">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+				<div class="table-responsive">
+				<table id="tablaCate" class="table table-striped table-bordered" style="text-align: center;">
+					<thead class="thead-dark">
+						<tr>
+							<th >ID Bitacora</th>
+							<th >Usuario</th>
+							<th >Fecha y Hora</th>
+							<th >ip</th>
+							<th >ID Usuario</th>
+							<th >Movimiento</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="bitacora,status : ${bitacoras}">
+							<td th:text="*{bitacora[0]}"></td>
+							<td th:text="*{bitacora[1]}"></td>
+							<td th:text="*{bitacora[2]}"></td>
+							<td th:text="*{bitacora[3]}"></td>
+							<td th:text="*{bitacora[4]}"></td>
+							<td th:if="${bitacora[5]} == 0" th:text="Creó"></td>
+							<td th:if="${bitacora[5]} == 1" th:text="Modificó"></td>
+							<td th:if="${bitacora[5]} == 2" th:text="Borró"></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+				<!-- <nav th:replace="paginator-nav :: paginator"></nav> -->
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:replace="categoria/customDTCategoria :: dtcate" ></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/sc-2.0.0/datatables.min.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/sc-2.0.0/datatables.min.js"></script>
+	</body>
+</html>

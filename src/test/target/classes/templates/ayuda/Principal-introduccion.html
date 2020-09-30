@@ -1,0 +1,50 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                    <h3><span class='section-heading'>Acerca del sistema SGS</span></h3>
+                    <p>El sistema de gestión suministros es un proyecto en ambiente web con el objetivo de facilitar la administración de suministros y proveer un control sobre la cantidad en existencia, agilizando y automatizando también el proceso de requisición de suministros dentro de la institución.
+                    </p>
+                    <br>
+                    <p>El objetivo principal del proyecto es el de incrementar el control de suministros dentro de la Asociación de Municipios de Honduras y mejorar el proceso de entrada y salida de suministros.
+     </p>
+                    <br>
+                    
+                    <div th:fragment="indice">
+                    <h3>Indice de ayuda</h3>
+                    <li><a th:href="@{/ayuda/Inicio-de-Sesion}"><b>Inicio de sesión</b></a></li>
+                    <li><a th:href="@{/ayuda/Modulo-admin-Gestion-Departamentos}"><b>Gestión Departamento</b></a></li>
+                    <li><a th:href="@{/ayuda/Modulo-admin-Gestion-Usuarios}"><b>Gestión Usuarios</b></a></li> 
+                    <li><a th:href="@{/ayuda/Modulo-articulos-Gestion-Categorias}"><b>Gestión Categorias</b></a></li>
+                    <li><a th:href="@{/ayuda/Modulo-articulos-Gestion-Unidades}"><b>Gestión Unidades</b></a></li>
+                    <li><a th:href="@{/ayuda/Modulo-articulos-Gestion-Articulos}"><b>Gestión Articulos</b></a></li>
+                    <li><a th:href="@{/ayuda/Modulo-articulos-Gestion-Proveedores}"><b>Gestión Proveedores</b></a></li>
+                    <li><a th:href="@{/ayuda/Modulo-articulos-Gestion-ISV}"><b>Gestión ISV</b></a></li>
+                    <li><a th:href="@{/ayuda/Modulo-Inventario-Gestion-Entrada}"><b>Gestión Entradas</b></a></li>
+                    <li><a th:href="@{/ayuda/Modulo-Inventario-Gestion-Kardex}"><b>Gestión Kardex</b></a></li>
+                    <li><a th:href="@{/ayuda/Modulo-Requisicion-Gestion-Requisicion}"><b>Gestión Requisicion</b></a></li>
+                    <li><a th:href="@{/ayuda/Modulo-Reportes-Uso-Reportes}"><b>Uso de Reportes</b></a></li>
+                    <li><a th:href="@{/ayuda/Modulo-Reportes-Uso-Reportes}"><b>Uso de Graficas</b></a></li>
+                  
+                    </div>
+                    <br>
+                     <br><br>
+                     <br><br>
+                     <br>
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

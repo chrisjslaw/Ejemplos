@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+	<header th:replace="layout/layout :: header"> </header>
+
+	<div class="container py-4 ">
+		<div class="card bg-light border-dark">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+			<a class="btn btn-light btn-xs"
+						th:href="@{/}"
+						th:text="'&laquo; volver'"></a>
+						<br>
+			<div th:object="${inf}" th:remove="tag">
+			<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger" role="alert">
+			<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+			</ul>
+			</div>
+
+				<form th:action="@{/info/cambiarInfo}" th:object="${inf}" method="post">
+<br>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Misión:</b></label>
+						<div class="col-sm-6">
+							<textarea th:field="*{mision}" class="form-control" th:errorclass="'form-control alert-danger'"></textarea>
+						</div>
+					</div>
+					
+						<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Visión:</b></label>
+						<div class="col-sm-6">
+							<textarea th:field="*{vision}" class="form-control" th:errorclass="'form-control alert-danger'"></textarea>
+						</div>
+					</div>
+					
+						<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Valores:</b></label>
+						<div class="col-sm-6">
+							<textarea th:field="*{valores}" class="form-control" th:errorclass="'form-control alert-danger'"></textarea>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Línea Estratégica 1:</b></label>
+						<div class="col-sm-6">
+							<textarea th:field="*{l1}" class="form-control" th:errorclass="'form-control alert-danger'"></textarea>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Línea Estratégica 2:</b></label>
+						<div class="col-sm-6">
+							<textarea th:field="*{l2}" class="form-control" th:errorclass="'form-control alert-danger'"></textarea>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Línea Estratégica 3:</b></label>
+						<div class="col-sm-6">
+							<textarea th:field="*{l3}" class="form-control" th:errorclass="'form-control alert-danger'"></textarea>
+						</div>
+					</div>
+					
+					<input type="hidden" th:field="*{id_info}"/>
+
+					<div class="form-group">
+						<div class="col-sm-6">
+							<input type="submit" th:value="${textoBoton}"
+								class="btn btn-primary" />
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

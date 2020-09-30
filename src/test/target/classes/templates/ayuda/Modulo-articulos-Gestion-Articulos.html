@@ -1,0 +1,123 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                   <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    <br>
+                    
+                    <br>
+                </div>
+                
+                <div class="step">
+                    <h3><span class='section-heading'>Módulo de articulos:</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Pantalla Administración de Articulos</h3>
+                    <br>
+                    <img th:src="@{/imgs/28.jpg}" alt="Pantalla Administración de Articulos La pantalla muestra la tabla de categorías con la información de cada uno.
+1-  Botón Crear Articulo: desde aquí podremos acceder a agregar un nuevo articulo en el sistema, ver proceso para crear un nuevor articulo.
+
+2- Botones exportación: permite copiar y exportar la información de la tabla categoría a pdf y excel.
+
+3- Campo de búsqueda para filtrar los datos por ejemplo: si escribimos papel solo aparecen los registros que contengan papel. 
+
+4- Botón editar: permite editar la información del del artículo, ver procesos para editar la información de un artículo.
+
+5- Botón eliminar: permite eliminar el artículo de esa fila, ver proceso para eliminar un artículo.
+
+6- Ordenar columna: al darle clic a las flecha cambiará el orden de la columna si es texto se ordenará alfabéticamente y si es numérico cambiará de mayor a menor, lo mismo para las fechas." />
+                    <p class="description"><p>La pantalla muestra la tabla de categorías con la información de cada uno.</p>
+                    <br>
+                    <p>1-  Botón Crear Articulo: desde aquí podremos acceder a agregar un nuevo articulo en el sistema, ver proceso para crear un nuevor articulo.</p>
+                    <p>2- Botones exportación: permite copiar y exportar la información de la tabla categoría a pdf y excel.</p>
+                    <p>3- Campo de búsqueda para filtrar los datos por ejemplo: si escribimos papel solo aparecen los registros que contengan papel. </p>
+                    <p>4- Botón editar: permite editar la información del del artículo, ver procesos para editar la información de un artículo.</p>
+                    <p>5- Botón eliminar: permite eliminar el artículo de esa fila, ver proceso para eliminar un artículo.</p>
+                    <p>6- Ordenar columna: al darle clic a las flecha cambiará el orden de la columna si es texto se ordenará alfabéticamente y si es numérico cambiará de mayor a menor, lo mismo para las fechas.</p></p>
+                     <br>
+                </div><div class="step">
+                <br>
+                    <h3><span class='section-heading'>Formulario crear articulo</span></h3>
+                    <br>
+                    
+                </div><div class="step">
+                    <h3>Proceso de creación de un articulo nuevo en el inventario.</h3>
+                    <img th:src="@{/imgs/29.jpg}" alt="Proceso de creación de un articulo nuevo en el inventario.  Paso 1: Ingresamos el nombre del artículo a crear.
+
+Paso 2: elegimos la unidad de medida apropiada, la cual esta dentro de la lista de unidades de medida.
+
+Paso 3: elegimos la categoría del articulo, la cual esta dentro de la lista de categorías de artículo.
+
+Paso 4: ingresamos el código de barras.
+
+Paso 5: opcionalmente se le puede agregar una observación al articulo.
+
+Paso 6: definimos el stock mínimo del articulo para evitar quedarnos sin existencia y que el sistema pueda generar una alerta.
+
+Paso 7: definimos el máximo de unidades del articulo que pueden pedirse en una requisición.
+
+Paso 8: opcionalmente si deseamos no continuar con el proceso de guardado de los datos, podemos regresar al listado de artículos desde el botón volver.
+
+Paso 9: una vez hayamos finalizado de llenar la información del formulario procedemos a darle clic al botón crear artículo para que este se guarde en el sistema." />
+                    <p class="description"><p><strong>Paso 1:</strong> Ingresamos el nombre del artículo a crear.</p><p><strong>Paso 2:</strong> elegimos la unidad de medida apropiada, la cual esta dentro de la lista de unidades de medida.</p><p><strong>Paso 3:</strong> elegimos la categoría del articulo, la cual esta dentro de la lista de categorías de artículo.</p><p><strong>Paso 4:</strong> ingresamos el código de barras.</p><p><strong>Paso 5:</strong> opcionalmente se le puede agregar una observación al articulo.</p><p><strong>Paso 6:</strong> definimos el stock mínimo del articulo para evitar quedarnos sin existencia y que el sistema pueda generar una alerta.</p><p><strong>Paso 7:</strong> definimos el máximo de unidades del articulo que pueden pedirse en una requisición.</p><p><strong>Paso 8:</strong> opcionalmente si deseamos no continuar con el proceso de guardado de los datos, podemos regresar al listado de artículos desde el botón volver.</p><p><strong>Paso 9:</strong> una vez hayamos finalizado de llenar la información del formulario procedemos a darle clic al botón crear artículo para que este se guarde en el sistema.</p></p>
+                </div><div class="step">
+                     <br>
+                    <h3><span class='section-heading'>Formulario editar articulo</span></h3>
+                      <br>
+                    
+                </div><div class="step">
+                    <h3>Proceso para editar la información de un articulo en el inventario.</h3>
+                    <img th:src="@{/imgs/30.jpg}" alt="Proceso para editar la información de un articulo en el inventario.  Paso 1: editamos los datos deseados.
+
+Paso 2: opcionalmente si deseamos no continuar con el proceso de guardado de los datos, podemos regresar al listado de artículos desde el botón volver.
+
+Paso 3: al finalizar de editar la información damos clic al botón editar artículo para guardar los cambios realizados.
+" />
+                    <p class="description"><p><strong>Paso 1:</strong> editamos los datos deseados.</p><p><strong>Paso 2:</strong> opcionalmente si deseamos no continuar con el proceso de guardado de los datos, podemos regresar al listado de artículos desde el botón volver.</p><p><strong>Paso 3</strong>: al finalizar de editar la información damos clic al botón editar artículo para guardar los cambios realizados.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3><span class='section-heading'>Proceso eliminar un artículo</span></h3>
+                    
+                    
+                </div><div class="step">
+                  <br>
+                    <h3>Clic en el botón eliminar</h3>
+                    <img th:src="@{/imgs/31.jpg}" alt="Clic en el botón eliminar
+ Damos clic en el botón eliminar de la fila que deseamos borrar el registro." />
+                    <p class="description"><p>Damos clic en el botón eliminar de la fila que deseamos borrar el registro.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Confirmar eliminación</h3>
+                    <img th:src="@{/imgs/32.jpg}" alt="Confirmar eliminación Al darle clic al botón eliminar nos aparecerá un mensaje de confirmación, presionamos aceptar si lo deseamos eliminar, caso contrario le damos clic a cancelar." />
+                    <p class="description"><p>Al darle clic al botón eliminar nos aparecerá un mensaje de confirmación, presionamos aceptar si lo deseamos eliminar, caso contrario le damos clic a cancelar.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Eliminación exitosa.</h3>
+                    <img th:src="@{/imgs/33.jpg}" alt="Eliminación exitosa. Después de aceptar eliminar el registro nos aparecerá el siguiente mensaje con el nombre de la Unidad de medida que fue eliminada con éxito." />
+                    <p class="description"><p>Después de aceptar eliminar el registro nos aparecerá el siguiente mensaje con el nombre de la Unidad de medida que fue eliminada con éxito.</p></p>
+                <br>
+                <br>
+                <br><br><br>
+                </div>    
+                
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

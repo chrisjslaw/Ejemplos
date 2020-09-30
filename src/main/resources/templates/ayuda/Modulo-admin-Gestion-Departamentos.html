@@ -1,0 +1,96 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                    <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                   
+                    
+                    <br>
+                    
+                    <br>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Módulo Administración: </span></h3>
+                    
+                    <br>
+                </div>
+                
+                <div class="step">
+                    <h3>Pantalla Administración de Departamentos</h3>
+                    <img th:src="@{/imgs/5.jpg}" />
+                    <p class="description"><p>La pantalla muestra la tabla de usuarios con la información de cada uno.</p>
+                    <br>
+                    <p>1-  Botón Crear departamento: desde aquí podremos acceder a crear un nuevo departamento en el sistema, ver el proceso de creación de un departamento.</p>
+                    <p>2- Botones exportación: permite copiar y exportar la información de la tabla usuarios a pdf y excel.</p>
+                    <p>3- Campo de búsqueda para filtrar los datos por ejemplo: si escribimos Gerencia solo aparecen los registros que contengan gerencia. </p>
+                    <p>4- Botón editar: permite editar la información del departamento, ver el proceso para editar la información de un departamento.</p>
+                    <p>5- Botón Elminiar: Permite borrar el registro seleccionado, ver el proceso para eliminar un registro.</p>
+                    <p>6- Ordenar columnas: al darle clic a las flecha cambiará el orden de la columna si es texto se ordenará alfabeticamente y si es numérico cambiará de mayor a menor, lo mismo para las fechas.</p>
+                    <p>7-  Cantidad de registros: este mensaje muestra la cantidad de registros en la pagina de un total por ejemplo: del 1 al 4 de un total de 4 registros y los registros se muestra de 10 en 10.</p>
+                    <p>8- Botones para la navegación de registros: estos botones nos ayudan a navegar entre los registros con facilidad.</p></p>
+                <br>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Formulario para crear nuevo departamento.</span></h3>
+                    
+                    <br>
+                </div><div class="step">
+                    <h3>Proceso de creación de un Departamento.</h3>
+                    <img th:src="@{/imgs/6.jpg}" />
+                    <p class="description"><p><strong>Paso 1:</strong> llenamos el campo con el nombre del departamento a crear.</p>
+                    <p><strong>Paso 2:</strong> En el campo Descricpción, escribimos una breve descripción del departamento.</p>
+                    <p><strong>Paso 3:</strong> en caso de querer regresar al listado de departamentos sin terminar de guardar el departamentos nuevo, podemos darle clic al boton volver.</p><p><strong>Paso 4:</strong> Al rellenar todos los campos  procedemos a darle click al boton Crear Departamento para finalizar la creación y guardarlo.  </p></p>
+                </div>
+                <br>
+                <div class="step">
+                    <h3><span class='section-heading'>Formulario para editar un departamento.</span></h3>
+                    
+                    
+                </div><div class="step">
+                <br>
+                    <h3>Proceso para editar la información de un Departamento.</h3>
+                    <img th:src="@{/imgs/7.jpg}" />
+                    <p class="description"><p>Una vez que hayamos dado click al botón editar en un registro de la lista de departamentos, se cargara un formulario con la información de dicho departamento para que esta pueda ser editada.</p><p>Luego procederemos a realizar estos pasos para poder editar la información exitosamente.</p><p><strong>Paso 1:</strong> Editamos los campos necesarios.</p><p><strong>Paso 2:</strong> en caso de no querer guardar los cambios realizados y solo quiere regresar a la lista de departamentos, puede presionar el botón volver.</p><p><strong>Paso 3: </strong>Damos click a editar departamento para finalizar el proceso.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3><span class='section-heading'>Proceso eliminar un Departamento</span></h3>
+                    <br>
+                    
+                </div><div class="step">
+                    <h3>Clic al botón eliminar</h3>
+                    <img th:src="@{/imgs/8.jpg}" alt="Clic al botón eliminar  Damos clic en el botón eliminar de la fila que deseamos borrar el registro. " />
+                    <p class="description"><p> Damos clic en el botón eliminar de la fila que deseamos borrar el registro. </p></p>
+                </div><div class="step">
+                <br>
+                    <h3>Confirmar eliminación</h3>
+                    <br>
+                    <img th:src="@{/imgs/9.jpg}" alt="Confirmar eliminación Al darle clic al botón eliminar nos aparecerá un mensaje de confirmación, presionamos aceptar si lo deseamos eliminar, caso contrario le damos clic a cancelar." />
+                    <p class="description"><p>Al darle clic al botón eliminar nos aparecerá un mensaje de confirmación, presionamos aceptar si lo deseamos eliminar, caso contrario le damos clic a cancelar.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3>Eliminación exitosa.</h3>
+                    <br>
+                    <img th:src="@{/imgs/10.jpg}" />
+                    <p class="description"><p>Después de aceptar eliminar el registro nos aparecerá el siguiente mensaje con el nombre del departamento que fue eliminado con éxito siempre y cuando este no este ligado a otros registros.</p></p>
+                <br>
+                <br>
+                <br><br><br>
+                </div>
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

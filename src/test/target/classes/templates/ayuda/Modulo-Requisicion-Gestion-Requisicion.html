@@ -1,0 +1,238 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                   <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    <br>
+                    
+                    <br>
+                </div>
+                
+                
+               
+                  <div class="step">
+                    <h3><span class='section-heading'>Módulo Requisición</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3><span class='section-heading'>Lista de Requisiciones</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <img th:src="@{/imgs/53.jpg}" alt="Listado de Requisiciones Esta tabla solo esta disponible para los super_administradores y administradores.
+1. Esta tabla contiene los datos de todas las requisiciones hechas sin importar su estado.
+2.Opción detalle: Permite ver el detalle de la requisición, es decir los artículos que se pidieron, su cantidad, precio y el total que representa, ver pantalla de detalle.
+3. Filtro de búsqueda: filtro de búsqueda general en el cual se puede filtrar la búsqueda por ejemplo por departamento: buscamos unidad de mantenimiento de sistemas odepartamento de comunicaciones, así mismo podemos buscar por la fecha de la siguiente forma12-06-09 o el nombre del solicitante.
+
+
+
+" />
+                    <p class="description"><p>Esta tabla solo esta disponible para los super_administradores y administradores.</p><p>1. Esta tabla contiene los datos de todas las requisiciones hechas sin importar su estado.</p><p>2.Opción detalle: Permite ver el detalle de la requisición, es decir los artículos que se pidieron, su cantidad, precio y el total que representa, ver pantalla de detalle.</p><p>3. Filtro de búsqueda: filtro de búsqueda general en el cual se puede filtrar la búsqueda por ejemplo por departamento: buscamos "unidad de mantenimiento de sistemas" o"departamento de comunicaciones", así mismo podemos buscar por la fecha de la siguiente forma"12-06-09" o el nombre del solicitante.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3><span class='section-heading'>Módulo Requisición</span></h3>
+                    
+                    
+                </div><div class="step">
+                  <br>
+                    <h3>Detalle de Requisición</h3>
+                    <img th:src="@{/imgs/54.jpg}" alt="Detalle de Requisición 1. Datos generales: Nos muestra los datos generales de la requisición como ser: solicitante, departamento, fecha, estado.
+2.Detalle de requisición: Aqui nos muestra los artículos solicitados en la requisición y su información, como ser: Nombre del producto/artículo, precio, cantidad solicitada y el total que representa ese articulo.
+ 
+
+" />
+                    <p class="description"><p>1. Datos generales: Nos muestra los datos generales de la requisición como ser: solicitante, departamento, fecha, estado.</p><p>2.Detalle de requisición: Aqui nos muestra los artículos solicitados en la requisición y su información, como ser: Nombre del producto/artículo, precio, cantidad solicitada y el total que representa ese articulo.</p><p> </p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Detalle Requisición</h3>
+                    <img th:src="@{/imgs/55.jpg}" alt="Detalle Requisición 3. Gran Total: aqui se muestra el total que representa todos los arículos/productos." />
+                    <p class="description"><p>3. Gran Total: aqui se muestra el total que representa todos los arículos/productos.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3><span class='section-heading'>Módulo Requisición </span></h3>
+                    
+                    
+                </div><div class="step">
+                  <br>
+                    <h3>Mis Requisiciones</h3>
+                    <img th:src="@{/imgs/56.jpg}" alt="Mis Requisiciones Esta tabla se muestra a todos los usuarios.
+
+1. Esta tabla nos muestra todas las requisiciones que hemos hecho durante los últimos 3 meses, el campo motivo nos muestra el motivo de rechazo de nuestra requisición.
+2. Filtro de búsqueda: filtro de búsqueda general en el cual se puede filtrar la búsqueda por ejemplo por Estado de Requisición: buscamos Entregado, Aprobado oRechazado, así mismo podemos buscar por la fecha de la siguiente forma12-06-09.
+3. .Opción detalle: Permite ver el detalle de la requisición, es decir los artículos que se pidieron, su cantidad, precio y el total que representa, ver pantalla de detalle." />
+                    <p class="description"><p>Esta tabla se muestra a todos los usuarios.</p><p>1. Esta tabla nos muestra todas las requisiciones que hemos hecho durante los últimos 3 meses, el campo motivo nos muestra el motivo de rechazo de nuestra requisición.</p><p>2. Filtro de búsqueda: filtro de búsqueda general en el cual se puede filtrar la búsqueda por ejemplo por Estado de Requisición: buscamos "Entregado", "Aprobado" o"Rechazado", así mismo podemos buscar por la fecha de la siguiente forma"12-06-09".</p><p>3. .Opción detalle: Permite ver el detalle de la requisición, es decir los artículos que se pidieron, su cantidad, precio y el total que representa, ver pantalla de detalle.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3><span class='section-heading'>Módulo Requisición</span></h3>
+                    
+                    
+                </div><div class="step">
+                  <br>
+                    <h3><span class='section-heading'>Proceso de realización de una requisición</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <img th:src="@{/imgs/57.jpg}" alt="Proceso: Realizar Requisición En esta opción del menu de requisición podemos realizar una requisicion de artículos.
+Paso 1. Observamos que estos campos se llenan por defecto con la información de nuestra cuenta." />
+                    <p class="description"><p>En esta opción del menu de requisición podemos realizar una requisicion de artículos.</p><p>Paso 1. Observamos que estos campos se llenan por defecto con la información de nuestra cuenta.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Paso 2: seleccionar el campo Buscar artículo</h3>
+                    <img th:src="@{/imgs/58.jpg}" alt="Paso 2: seleccionar el campo Buscar artículo Damos clic al campo de buscar artículo." />
+                    <p class="description"><p>Damos clic al campo de buscar artículo.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Paso 3: escribir el nombre del artículo</h3>
+                    <img th:src="@{/imgs/59.jpg}" alt="Paso 3: escribir el nombre del artículo Escribimos el nombre del artículo que deseamos solicitar y se nos desplegara una lista de los artículos que coincidan con lo que escribimos en el campo de búsqueda, por ejemplo: en este caso se ha escrito la y nos ha aparecido esta lista de la cual seleccionamos Lápiz tinta negro." />
+                    <p class="description"><p>Escribimos el nombre del artículo que deseamos solicitar y se nos desplegara una lista de los artículos que coincidan con lo que escribimos en el campo de búsqueda, por ejemplo: en este caso se ha escrito "la" y nos ha aparecido esta lista de la cual seleccionamos Lápiz tinta negro.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Paso 4: introducir la cantidad del articulo a solicitar</h3>
+                    <img th:src="@{/imgs/60.jpg}" alt="Paso 4: introducir la cantidad del articulo a solicitar Una vez seleccionado introducimos la cantidad del articulo, la cantidad tiene un limite por requisición y este limite depende del artículo, el sistema desplegará un mensaje en caso de que nos pasemos de la cantidad limite que se puede solicitar, ver mensajes de error al realizar una requisición." />
+                    <p class="description"><p>Una vez seleccionado introducimos la cantidad del articulo, la cantidad tiene un limite por requisición y este limite depende del artículo, el sistema desplegará un mensaje en caso de que nos pasemos de la cantidad limite que se puede solicitar, ver mensajes de error al realizar una requisición.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Paso 5: Agregar más articulos</h3>
+                    <img th:src="@{/imgs/61.jpg}" alt="Paso 5: Agregar más articulos
+ Si deseamos agregar más artículos debemos realizar el mismo proceso desde el paso 2 al 4." />
+                    <p class="description"><p>Si deseamos agregar más artículos debemos realizar el mismo proceso desde el paso 2 al 4.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Paso 6: Verificar el total y la cantidad.</h3>
+                    <img th:src="@{/imgs/62.jpg}" alt="Paso 6: Verificar el total y la cantidad. Después de agregar todos los artículos a solicitar en la requisición verificamos que la cantidad a solicitar y el total sean los correctos." />
+                    <p class="description"><p>Después de agregar todos los artículos a solicitar en la requisición verificamos que la cantidad a solicitar y el total sean los correctos.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Paso 7: Crear la requisición.</h3>
+                    <img th:src="@{/imgs/63.jpg}" alt="Paso 7: Crear la requisición. Una vez el paso 6 este completo procedemos a darle clic al botón Crear requisición que esta indicado en un rectangulo rojo, al darle clic el sistema creara nuestra requisición para que entre en el esquema de aprobación y pueda ser aprobada/rechazada por la gerencia financiera." />
+                    <p class="description"><p>Una vez el paso 6 este completo procedemos a darle clic al botón "Crear requisición" que esta indicado en un rectangulo rojo, al darle clic el sistema creara nuestra requisición para que entre en el esquema de aprobación y pueda ser aprobada/rechazada por la gerencia financiera.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Paso 8: Requisición creada con exito.</h3>
+                    <img th:src="@{/imgs/64.jpg}" alt="Paso 8: Requisición creada con exito. Una vez creada la requisición el sistema nos mostrará el mensaje de Requisicion creada con éxito!." />
+                    <p class="description"><p>Una vez creada la requisición el sistema nos mostrará el mensaje de "Requisicion creada con éxito!".</p></p>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Mensajes de error al realizar una Requisición</span></h3>
+                    
+                    
+                </div><div class="step">
+                  <br>
+                    <h3>Mensaje de error que excede la cantidad limite a pedir.</h3>
+                    <img th:src="@{/imgs/65.jpg}" alt="Mensaje de error que excede la cantidad limite a pedir. Primero seleccionamos el artículo a pedir y su cantidad, en este caso 5.
+Para finalizar la requisición damos clic a crear requisición." />
+                    <p class="description"><p>Primero seleccionamos el artículo a pedir y su cantidad, en este caso 5.</p><p>Para finalizar la requisición damos clic a crear requisición.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Mensaje de error que excede la cantidad limite a pedir.</h3>
+                    <img th:src="@{/imgs/66.jpg}" alt="Mensaje de error que excede la cantidad limite a pedir. El formulario nos mostrara un mensaje indicando que la cantidad máxima a pedir de ese artículo es 1.
+Debemos volver a buscar el artículo a pedir con la cantidad correcta." />
+                    <p class="description"><p>El formulario nos mostrara un mensaje indicando que la cantidad máxima a pedir de ese artículo es 1.</p><p>Debemos volver a buscar el artículo a pedir con la cantidad correcta.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3><span class='section-heading'>Mensaje de error: al solicitar una cantidad mayor a la existencia del inventario.</span></h3>
+                    
+                    
+                </div><div class="step">
+                      <br>
+                    <img th:src="@{/imgs/67.jpg}" alt="Mensaje de error al solicitar una cantidad mayor a la que hay en existencia. En este ejemplo solicitamos 25 Sobres membretados lo cual esta dentro de la cantidad permitida.
+Procedemos a darle clic al botón Crear Requisición." />
+                    <p class="description"><p>En este ejemplo solicitamos 25 Sobres membretados lo cual esta dentro de la cantidad permitida.</p><p>Procedemos a darle clic al botón "Crear Requisición".</p></p>
+                </div><div class="step">
+               <br>
+                    <img th:src="@{/imgs/68.jpg}" alt="Mensaje de error al solicitar una cantidad mayor a la que hay en existencia. Como podemos observar en la captura de pantalla se muestra el error indicando que solo hay 10 sobres membretados en existencia, por favor pida una cantidad menor ya que se habian solicitado 25." />
+                    <p class="description"><p>Como podemos observar en la captura de pantalla se muestra el error indicando que solo hay 10 sobres membretados en existencia, por favor pida una cantidad menor ya que se habian solicitado 25.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3><span class='section-heading'>Módulo Requisición </span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3><span class='section-heading'>Proceso de realización de una requisición especial</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <br>
+                    <img th:src="@{/imgs/69.jpg}" alt="Proceso: realizar una Requisición especial. La requisición especial se utiliza en casos especiales donde los alcaldes hacen requisición de artículos o cuando son eventos relacionados a los mismo, otro caso especial es el personal de aseo que no cuenta con acceso, sino que piden directamente a suministros.
+Paso 1: Al igual que en la requisición normal los campos de: solicitante, cargo y departamento se cargan con la información de su cuenta.
+Paso 2: Llenar el campo Motivo especial para poder hacer constar el motivo de la requisición especial ya que esta no utiliza el esquema de aprobación, sino que se aprueba directamente." />
+                    <p class="description"><p>La requisición especial se utiliza en casos especiales donde los alcaldes hacen requisición de artículos o cuando son eventos relacionados a los mismo, otro caso especial es el personal de aseo que no cuenta con acceso, sino que piden directamente a suministros.</p>
+                    <p><strong>Paso 1:</strong> Al igual que en la requisición normal los campos de: solicitante, cargo y departamento se cargan con la información de su cuenta.</p>
+                    <br>
+                    <p><strong>Paso 2:</strong> Llenar el campo Motivo especial para poder hacer constar el motivo de la requisición especial ya que esta no utiliza el esquema de aprobación, sino que se aprueba directamente.</p></p>
+                <br>
+                </div><div class="step">
+                    <h3>Paso 3: Buscar los articulos.</h3>
+                    <img th:src="@{/imgs/70.jpg}" alt="Paso 3: Buscar los articulos. En el campo Buscar artículo escribimos el nombre del articulo que vamos a solicitar, este campo nos desplegara una lista de 10 posibles articulos que coincidan con la busqueda, para tener una mayor precisión se requiere que se use una palabra completa por ejemplo: sobres, tinta, lápiz etc." />
+                    <p class="description"><p>En el campo Buscar artículo escribimos el nombre del articulo que vamos a solicitar, este campo nos desplegara una lista de 10 posibles articulos que coincidan con la busqueda, para tener una mayor precisión se requiere que se use una palabra completa por ejemplo: "sobres", "tinta", "lápiz" etc.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3>Paso 4: Seleccionar el articulo a solicitar.</h3>
+                    <img th:src="@{/imgs/71.jpg}" alt="Paso 4: Seleccionar el articulo a solicitar. Seleccionaremos el artículo a solicitar, como la búsqueda fue sobres se nos despliega una lista con los nombres de artículos que coincidan con la misma.
+En este caso seleccionaremos sobres manila tamaño legal." />
+                    <p class="description"><p>Seleccionaremos el artículo a solicitar, como la búsqueda fue "sobres" se nos despliega una lista con los nombres de artículos que coincidan con la misma.</p><p>En este caso seleccionaremos sobres manila tamaño legal.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3>Paso 5: Continuar agregando articulos a la requisición.</h3>
+                    <img th:src="@{/imgs/72.jpg}" alt="Paso 5: Continuar agregando articulos a la requisición. Para poder seguir agregando artículos se debe repetir desde el paso 3 al 4.
+En este ejemplo hemos agregado resaltador y baterias AAA." />
+                    <p class="description"><p>Para poder seguir agregando artículos se debe repetir desde el paso 3 al 4.</p><p>En este ejemplo hemos agregado resaltador y baterias AAA.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3>Paso 6: verificar las cantidades a solicitar y proceder a crear la requisición especial.</h3>
+                    <img th:src="@{/imgs/73.jpg}" alt="Paso 6: verificar las cantidades a solicitar y proceder a crear la requisición especial. En este paso debemos verificar que las cantidades de los artículos que vamos a solicitar sean las que necesitamos, en las requisiciones especiales el límite de las cantidades a pedir es igual al número de artículos en existencia debido a que son especiales y son hechas por el Administrador o Super_administrador, al contrario de las requisiciones normales que si tienen una cantidad limite por requisición.
+Para finalizar de crear la requisición especial debemos darle clic al botón Crear Requisición Especial la cual pasara directamente a estar en estado Entregado y se bajaran los artículos del inventario para que pueda ser entregada inmediatamente a la alcaldía, evento o personal de aseo." />
+                    <p class="description"><p>En este paso debemos verificar que las cantidades de los artículos que vamos a solicitar sean las que necesitamos, en las requisiciones especiales el límite de las cantidades a pedir es igual al número de artículos en existencia debido a que son especiales y son hechas por el Administrador o Super_administrador, al contrario de las requisiciones normales que si tienen una cantidad limite por requisición.</p><p>Para finalizar de crear la requisición especial debemos darle clic al botón "Crear Requisición Especial" la cual pasara directamente a estar en estado "Entregado" y se bajaran los artículos del inventario para que pueda ser entregada inmediatamente a la alcaldía, evento o personal de aseo.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3>Paso 7: Mensaje de éxito al crear una requisición.</h3>
+                    <img th:src="@{/imgs/74.jpg}" alt="Paso 7: Mensaje de éxito al crear una requisición. Como podemos observar en la captura de pantalla se muestra el mensaje de Requisición creada con éxito! y tambien podemos observar que la requisición se muestra en la tabla con el estado de entregado." />
+                    <p class="description"><p>Como podemos observar en la captura de pantalla se muestra el mensaje de "Requisición creada con éxito!" y tambien podemos observar que la requisición se muestra en la tabla con el estado de "entregado".</p></p>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Módulo Requisición - Aprobar Requisiciones</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Listado de requisiciones no aprobadas.</h3>
+                    <img th:src="@{/imgs/75.jpg}" alt="Listado de requisiciones no aprobadas. 1. Se muestran las requisiciones en estado Pendiente, las cuales contienen el solicitante, cargo, departamento y total.
+2. Botón detalles: Nos lleva a ver los detalles de la requisición por ejemplo: nos muestra la cantidad de artículos, precio y la fecha requisición.
+3. Botón aprobar: Al darle clic mostrará un mensaje de confirmación para saber si deseamos aprobar dicha requisición, una vez le demos aceptar la requisición pasará a estar aprobada y nos mostrará un mensaje de aprobacion exitosa.
+4. Botón Rechazar: Al darle clic nos mostrará un mensaje para confirmar dicha acción, si le damos aceptar la requisición pasará a estar rechazada.
+5.Filtro de búsqueda: filtro de búsqueda general en el cual se puede filtrar la búsqueda por ejemplo por solicitante Christian sanchez o por departamento Unidad de mantenimiento de sistemas.
+6. Opciones para exportar a PDF, Excel o copiar los datos." />
+                    <p class="description"><p>1. Se muestran las requisiciones en estado "Pendiente", las cuales contienen el solicitante, cargo, departamento y total.</p><p>2. Botón detalles: Nos lleva a ver los detalles de la requisición por ejemplo: nos muestra la cantidad de artículos, precio y la fecha requisición.</p><p>3. Botón aprobar: Al darle clic mostrará un mensaje de confirmación para saber si deseamos aprobar dicha requisición, una vez le demos aceptar la requisición pasará a estar aprobada y nos mostrará un mensaje de aprobacion exitosa.</p><p>4. Botón Rechazar: Al darle clic nos mostrará un mensaje para confirmar dicha acción, si le damos aceptar la requisición pasará a estar rechazada.</p><p>5.Filtro de búsqueda: filtro de búsqueda general en el cual se puede filtrar la búsqueda por ejemplo por solicitante "Christian sanchez" o por departamento "Unidad de mantenimiento de sistemas".</p><p>6. Opciones para exportar a PDF, Excel o copiar los datos.</p></p>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Módulo Requisición - Entregar Requisiciónes</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Pantalla de Requisiciones a entregar.</h3>
+                    <img th:src="@{/imgs/76.jpg}" alt="Pantalla de Requisiciones a entregar. 1. Esta tabla contiene las requisiciones que han sido aprobadas y estan en espera de ser entregadas.
+2. Botón Entregar: Al darle clic nos mostrará un mensaje de confirmación, le damos aceptar y la requisición pasa de estado Aprobado a Entregado y se baja la existencia de los articulos solicitados en la requisición.
+3.Filtro de búsqueda: filtro de búsqueda general en el cual se puede filtrar la búsqueda por ejemplo por solicitante Christian sanchez o por departamento Unidad de mantenimiento de sistemas.
+4. Opciones para exportar a PDF, Excel o copiar los datos." />
+                    <p class="description"><p>1. Esta tabla contiene las requisiciones que han sido aprobadas y estan en espera de ser entregadas.</p><p>2. Botón Entregar: Al darle clic nos mostrará un mensaje de confirmación, le damos aceptar y la requisición pasa de estado "Aprobado" a "Entregado" y se baja la existencia de los articulos solicitados en la requisición.</p><p>3.Filtro de búsqueda: filtro de búsqueda general en el cual se puede filtrar la búsqueda por ejemplo por solicitante "Christian sanchez" o por departamento "Unidad de mantenimiento de sistemas".</p><p>4. Opciones para exportar a PDF, Excel o copiar los datos.</p></p>
+                <br>
+                <br>
+                <br><br><br>
+                </div>    
+                
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

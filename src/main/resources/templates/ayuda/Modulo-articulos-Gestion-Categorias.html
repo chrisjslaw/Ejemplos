@@ -1,0 +1,82 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                   <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    <br>
+                    
+                    <br>
+                </div>
+                
+               <div class="step">
+                    <h3><span class='section-heading'>Módulo de articulos:</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Pantalla Administración de Categorías</h3>
+                      <br>
+                    <img th:src="@{/imgs/16.jpg}" />
+                    <p class="description"><p>La pantalla muestra la tabla de categorías con la información de cada uno.</p><p>1-  Botón Crear categoría: desde aquí podremos acceder a crear un una nueva categoría de articulo en el sistema, ver proceso de creación de categoria.</p><p>2- Botones exportación: permite copiar y exportar la información de la tabla categoría a pdf y excel.</p><p>3- Campo de búsqueda para filtrar los datos por ejemplo: si escribimos papel solo aparecen los registros que contengan papel. </p><p>4- Botón editar: permite editar la información del de la categoría, ver proceso para editar categoria.</p><p>5- Botón eliminar: permite eliminar la categoría  de esa fila.</p><p>6- Ordenar columna: al darle clic a las flecha cambiará el orden de la columna si es texto se ordenará alfabéticamente y si es numérico cambiará de mayor a menor, lo mismo para las fechas.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3><span class='section-heading'>Formulario crear nueva categoría</span></h3>
+                      <br>
+                    
+                </div><div class="step">
+                    <h3>Proceso de creación de categoría.</h3>
+                    <img th:src="@{/imgs/17.jpg}" />
+                    <p class="description"><p><strong>Paso 1:</strong> ingresamos el nombre de la categoría.</p><p><strong>Paso 2:</strong> ingresamos la descripción de la categoría.</p><p><strong>Paso 3</strong>: en caso de no continuar con el proceso de guardado, puede regresar a la lista de categorias dandole clic al botón volver.</p><p><strong>Paso 4</strong>: al finalizar de ingresar la información damos clic al botón crear categoría.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3><span class='section-heading'>Formulario editar categoría</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Proceso para editar la información de categoría.</h3>
+                    <img th:src="@{/imgs/18.jpg}"  />
+                    <p class="description"><p><strong>Paso 1: </strong>editamos los datos deseados.</p><p><strong>Paso 2</strong>: en caso de no querer continuar con el proceso de guardado, puede regresar a la lista de usuario dandole clic al botón volver.</p><p><strong>Paso 3</strong>: al finalizar de editar la información damos clic al botón editar categoría para guardar los cambios realizados.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3><span class='section-heading'>Proceso eliminar una categoria</span></h3>
+                    
+                    
+                </div><div class="step">
+                  <br>
+                    <h3>Clic al botón eliminar</h3>
+                    <img th:src="@{/imgs/19.jpg}" />
+                    <p class="description"><p>Damos clic en el botón eliminar de la fila que deseamos borrar el registro. </p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Confirmar eliminación</h3>
+                    <img th:src="@{/imgs/20.jpg}" />
+                    <p class="description"><p>Al darle clic al botón eliminar nos aparecerá un mensaje de confirmación, presionamos aceptar si lo deseamos eliminar, caso contrario le damos clic a cancelar.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Eliminación exitosa.</h3>
+                    <img th:src="@{/imgs/21.jpg}"  />
+                    <p class="description"><p>Después de aceptar eliminar el registro nos aparecerá el siguiente mensaje con el nombre de la categoría que fue eliminada con éxito siempre y cuando este no este ligado a otros registros.</p></p>
+                <br>
+                <br>
+                <br><br><br>
+                </div>    
+                
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

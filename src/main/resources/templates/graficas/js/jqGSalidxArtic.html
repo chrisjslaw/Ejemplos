@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<script type="text/javascript" th:fragment="customjs">
+
+$(document).ready(function () {
+	var urlAjax =$("#url").val();
+	  $.ajax({
+			type : 'GET',
+			dataType: "json",
+			contentType: "application/json",
+			url: urlAjax,
+			success: function(result){
+				google.charts.load('current', {
+					'packages' : [ 'corechart' ]
+				});
+				google.charts.setOnLoadCallback(function(){
+					drawChart(result);
+				});
+			}
+		});
+		
+		function drawChart(result){
+			var data2 = new google.visualization.DataTable();
+			data2.addColumn('string', 'Articulo');
+			data2.addColumn('number',' Total Salida');
+			
+			
+			var dataArray2=[];
+			$.each(result, function(i, obj){
+			   dataArray2.push([obj.artic, obj.costo_total]);
+			  
+			});
+			
+			data2.addRows(dataArray2);
+			
+			var formatter = new google.visualization.NumberFormat({prefix: 'L. '});
+			  formatter.format(data2, 1); // Apply formatter to second column
+
+	  
+			  
+	      var chart = new google.visualization.ChartWrapper({
+              'containerId': 'barchart_div',
+              'chartType': 'BarChart',
+              'dataTable': data2,
+              'options': { 
+            	  title: 'Gráfico de barras: Costo total de requisiciones de articulos en valor de Lempiras',
+  	      		//probar esto para spacear las barras bar: {groupWidth: '100%'},
+  	      		animation: {
+  	                duration: 1500,
+  	                startup: true
+  	            },
+  	          hAxis: {title: 'Costo por Articulo'},
+	      		vAxis: {title: 'Artículo' ,format: 'L#,###.00', 
+  	                    minValue:0,
+  	                    viewWindow: {
+  	                        min: 0
+  	                    }},
+  	      			seriesType: 'bars',
+  	      		legend: {position: 'none'}
+              },
+              view: {
+                  columns: [0, //The "descr column"
+      	    	    1, //Downlink column
+    	    	    {
+    	    	        calc: "stringify",
+    	    	        sourceColumn: 1, // Create an annotation column with source column "1"
+    	    	        type: "string",
+    	    	        role: "annotation"
+    	    	    }]
+              },
+          });
+			  
+	      EnablePagination(chart, 8, document.getElementById('prevButton'), document.getElementById('nextButton'));
+        }
+	      
+	      function EnablePagination(chart, ps, prevButton, nextButton) {
+              var currentPage = -1;
+              var pageSize = ps;
+          
+              // pad the datatable to have an exact number of pages, otherwise the bars' size in the
+              // last page will be artificially increased
+              var dt = chart.getDataTable();
+              if (dt.getNumberOfRows() % pageSize != 0) {
+                  for (var i = pageSize - (dt.getNumberOfRows() % pageSize); i > 0; i--) {
+                      dt.addRow(['', 0]);
+                  }
+              }
+              
+              var paginate = function(dir) {
+                  var numRows = chart.getDataTable().getNumberOfRows();
+                  currentPage += dir;
+                  var rows = [];
+                  for (var i = pageSize*currentPage; i < pageSize*(currentPage+1) && i < numRows; i++) {
+                      rows.push(i);
+                  }
+                  chart.setView({rows: rows, columns: [0, //The "descr column"
+        	    	    1, //Downlink column
+        	    	    {
+        	    	        calc: "stringify",
+        	    	        sourceColumn: 1, // Create an annotation column with source column "1"
+        	    	        type: "string",
+        	    	        role: "annotation"
+        	    	    }]});
+                  chart.draw();
+                  currentPage == 0 ? prevButton.setAttribute('disabled', 'disabled') : prevButton.removeAttribute('disabled');
+                  currentPage == numRows/pageSize-1 ? nextButton.setAttribute('disabled', 'disabled') : nextButton.removeAttribute('disabled');
+              }
+              prevButton.onclick = function() { paginate(-1) };
+              nextButton.onclick = function() { paginate(1) };
+              paginate(1);
+          }
+		$(window).resize(function(){
+			  drawChart1();
+			  drawChart2();
+			});
+		
+
+		
+		
+	});
+	
+	//
+	
+	
+
+$(document).ready(function () {
+	var urlAjax =$("#url").val();
+	var fechaIn =$("#fechin").val();
+	var fechaFin =$("#fechfin").val();
+	$.ajax({
+			type : 'GET',
+			dataType: "json",
+			contentType: "application/json",
+			url: urlAjax,
+		   
+			success: function(result){
+				google.charts.load('current', {
+					'packages' : [ 'corechart','table' ]
+				});
+				google.charts.setOnLoadCallback(function(){
+					drawChart(result);
+				});
+			}
+		});
+		
+		function drawChart(result){
+			var data = new google.visualization.DataTable();
+			data.addColumn('string', 'Articulo');
+			data.addColumn('number','Total articulos');
+			data.addColumn('number','Costo total');
+			var dataArray=[];
+			$.each(result, function(i, obj){
+			   dataArray.push([obj.artic, obj.total_articulos, obj.costo_total]);
+			  
+			   
+			});
+			
+			
+
+			data.addRows(dataArray);
+			
+			
+	      
+	      var view = new google.visualization.DataView(data);
+	      view.setColumns([0, 1, 2]);
+	      
+	      var table = new google.visualization.Table(document.getElementById('table_sort_div'));
+	      table.draw(data, {showRowNumber: true, width: '100%', height: '100%', page: 'enable',
+	          pageSize: 10,
+	          pagingSymbols: {
+	              prev: 'prev',
+	              next: 'next'
+	          },
+	          pagingButtonsConfiguration: 'auto'});
+
+	      document.getElementById('pngpie').outerHTML = '<a href="' + piechart.getImageURI() + '">Version Imprimible</a>';
+	      google.visualization.events.addListener(table, 'sort',
+	    	      function(event) {
+	    	        data.sort([{column: event.column, desc: !event.ascending}]);
+	    	        chart.draw(data);
+	    	      });
+
+		};
+	
+		
+	});
+	
+	
+	//
+
+
+$(document).ready(function () {
+	var urlAjax =$("#url").val();
+	var fechaIn =$("#fechin").val();
+	var fechaFin =$("#fechfin").val();
+	$.ajax({
+			type : 'GET',
+			dataType: "json",
+			contentType: "application/json",
+			url: urlAjax,
+		   
+			success: function(result){
+				google.charts.load('current', {
+					'packages' : [ 'corechart','table' ]
+				});
+				google.charts.setOnLoadCallback(function(){
+					drawChart(result);
+				});
+			}
+		});
+		
+		function drawChart(result){
+			var data = new google.visualization.DataTable();
+			data.addColumn('string', 'Artículo');
+			data.addColumn('number','Total artículos');
+			var dataArray=[];
+			$.each(result, function(i, obj){
+			   dataArray.push([obj.artic, obj.total_articulos]);
+			  
+			   
+			});
+			
+			
+
+			data.addRows(dataArray);
+			
+			
+			var piechart_options ={
+					title: 'Total Salida Por Artículo',
+					pieSliceText: 'percent',
+					is3D: true,
+					
+					
+					
+					
+			};
+			var piechart = new google.visualization.PieChart(document.getElementById('piechart_div'));
+	      piechart.draw(data, piechart_options);
+	      
+	      var view = new google.visualization.DataView(data);
+	      view.setColumns([0, 1]);
+	      
+	      
+
+	      
+	      google.visualization.events.addListener(piechart, 'ready', function () {
+	    	  piechart_div.innerHTML = '<img src="' + barchart.getImageURI() + '">';
+	         
+	        });
+	      document.getElementById('pngpie').outerHTML = '<a href="' + piechart.getImageURI() + '">Version Imprimible</a>';
+	     
+
+		};
+	
+		
+	});
+	
+
+	
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+}
+</script>
+</body>
+</html>
+

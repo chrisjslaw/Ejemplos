@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"> </header>
+<br>
+
+<div align="center" class="container py-4">
+					<div align="center" class="col-sm-8 ">
+					<h1  align="center">Listado de Gráficas</h1>
+		<div  align="center" class="list-group">
+						<ol>
+			<li><a th:href="@{/graficas/formGraficaEntradaXfechas}" class="list-group-item list-group-item-action  border border-secondary text-primary"><b>--Gráfica: Entradas por número de factura Filtradas por fecha.</b></a> </li>
+				<li><a th:href="@{/graficas/formGraficaRequisicionesxDepXfechas}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Gráfica: Gasto total de requisiciones por Áreas/Departamentos filtradas por fecha.</b></a></li> 
+				<li><a th:href="@{/graficas/formGraficaEntradasXfechasxProv}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Gráfica: Gasto total de Entradas por proveedores filtradas por fecha.</b></a></li>
+				<li><a th:href="@{/graficas/formGraficaEntradasxArticXfechas}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Grafica: Cantidad de artículos entrantes en un rango de fechas.</b></a></li> 
+				<li><a th:href="@{/graficas/formGraficaSalidasxArticXfechas}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Gráfica: Cantidad de salida de articulos en un rango de fechas.</b></a> </li>
+				</ol>
+		</div>
+	</div>
+</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/sc-2.0.0/datatables.min.css" />
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/sc-2.0.0/datatables.min.js"></script>
+</body>
+</html>

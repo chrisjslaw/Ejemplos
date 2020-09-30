@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:include="layout/layout :: head" >
+<meta moznomarginboxes mozdisallowselectionprint charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" th:href="@{/css/custom-styleChart.css}">
+</head>
+
+
+<body>
+<header th:replace="layout/layout :: header"> </header>
+
+<input style="margin:0px auto; display:block;" type="button" onclick="printDiv('printableArea')" value="Imprimir Gráficos" />
+<div id="printableArea">
+  <div class="col-md-12 text-center py-4">
+  <br>
+    <h1 th:text="${titulo}" ></h1>
+  </div>
+  
+  <div class="clearfix"></div>
+ 
+ <div id="barchart_div" class="chart"></div>
+    <div id='png'></div>
+    <div style="width:800px; margin:0 auto;" class="col-md-4">
+  <br>
+    <h1 align="center">Tabla Cantidad Artículos</h1>
+    <div  id="table_sort_div" ></div>
+  </div>
+    <div id="piechart_div" class="chart"></div>
+    <div style=" margin:auto ;" id='pngpie'></div>
+    
+    <br>
+  
+    
+  
+</div>
+
+
+<footer th:replace="layout/layout :: footer"></footer>
+<input type="hidden" id="url" th:value="@{'/graficas/cargar-entradas-artic/'+${fechain}+'/'+${fechafin}}">
+<input type="hidden" id="fechin" th:value='${fechain}'/>
+<input type="hidden" id="fechfin" th:value='${fechafin}'/>
+<link rel="stylesheet" th:href="@{/css/custom-styleChart.css}">
+<script th:src="@{/js/charts.js}"></script>
+<script th:replace="graficas/js/jqGEntrxArtic :: customjs" ></script>
+</body>
+</html>

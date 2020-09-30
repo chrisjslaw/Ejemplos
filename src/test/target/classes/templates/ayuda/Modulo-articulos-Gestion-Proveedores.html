@@ -1,0 +1,109 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                   <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    <br>
+                    
+                    <br>
+                </div>
+                
+                
+       <div class="step">
+                    <h3><span class='section-heading'>Módulo de artículos:</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Pantalla Administración de Proveedores</h3>
+                    <img th:src="@{/imgs/34.jpg}" alt="Pantalla Administración de Proveedores La pantalla muestra la tabla de Proveedores con la información de cada uno.
+1-  Botón Crear proveedor: desde aquí podremos acceder a agregar un nuevo proveedor en el sistema, ver proceso para crear un nuevo proveedor.
+
+2- Botones exportación: permite copiar y exportar la información de la tabla categoría a pdf y excel.
+
+3- Campo de búsqueda para filtrar los datos por ejemplo: si escribimos papel solo aparecen los registros que contengan papel. 
+
+4- Botón editar: permite editar la información del proveedor, ver proceso para editar la información del proveedor.
+
+5- Botón eliminar: permite eliminar el proveedor de esa fila, ver proceso para eliminar un proveedor.
+
+6- Ordenar columna: al darle clic a las flecha cambiará el orden de la columna si es texto se ordenará alfabéticamente y si es numérico cambiará de mayor a menor, lo mismo para las fechas." />
+                    <p class="description"><p>La pantalla muestra la tabla de Proveedores con la información de cada uno.</p><p>1-  Botón Crear proveedor: desde aquí podremos acceder a agregar un nuevo proveedor en el sistema, ver proceso para crear un nuevo proveedor.</p><p>2- Botones exportación: permite copiar y exportar la información de la tabla categoría a pdf y excel.</p><p>3- Campo de búsqueda para filtrar los datos por ejemplo: si escribimos papel solo aparecen los registros que contengan papel. </p><p>4- Botón editar: permite editar la información del proveedor, ver proceso para editar la información del proveedor.</p><p>5- Botón eliminar: permite eliminar el proveedor de esa fila, ver proceso para eliminar un proveedor.</p><p>6- Ordenar columna: al darle clic a las flecha cambiará el orden de la columna si es texto se ordenará alfabéticamente y si es numérico cambiará de mayor a menor, lo mismo para las fechas.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3><span class='section-heading'>Formulario crear proveedor</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Proceso de creación de un proveedor nuevo en el sistema.</h3>
+                    <img th:src="@{/imgs/35.jpg}" alt=" Proceso de creación de un proveedor nuevo en el sistema.   Paso 1: Ingresamos el nombre del proveedor a crear.
+
+Paso 2: ingresamos el teléfono del proveedor.
+
+Paso 3: Ingresamos la dirección del proveedor.
+
+Paso 4: ingresamos el email del proveedor.
+
+Paso 5: opcionalmente se le puede agregar una observación al proveedor por ej: la persona que atiende.
+
+Paso 8: opcionalmente si deseamos no continuar con el proceso de guardado de los datos, podemos regresar al listado de proveedores desde el botón volver.
+
+Paso 9: una vez hayamos finalizado de llenar la información del formulario procedemos a darle clic al botón crear proveedor para que este se guarde en el sistema." />
+                    <p class="description"><p><strong>Paso 1:</strong> Ingresamos el nombre del proveedor a crear.</p><p><strong>Paso 2:</strong> ingresamos el teléfono del proveedor.</p><p><strong>Paso 3:</strong> Ingresamos la dirección del proveedor.</p><p><strong>Paso 4:</strong> ingresamos el email del proveedor.</p><p><strong>Paso 5:</strong> opcionalmente se le puede agregar una observación al proveedor por ej: la persona que atiende.</p><p><strong>Paso 8:</strong> opcionalmente si deseamos no continuar con el proceso de guardado de los datos, podemos regresar al listado de proveedores desde el botón volver.</p><p><strong>Paso 9:</strong> una vez hayamos finalizado de llenar la información del formulario procedemos a darle clic al botón crear proveedor para que este se guarde en el sistema.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3><span class='section-heading'>Formulario editar proveedor</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Proceso de editar un proveedor en el sistema.</h3>
+                    <img th:src="@{/imgs/36.jpg}" alt="Proceso de editar un proveedor en el sistema.   Paso 1: editamos los datos deseados.
+
+Paso 2: opcionalmente si deseamos no continuar con el proceso de guardado de los datos, podemos regresar al listado de artículos desde el botón volver.
+
+Paso 3: al finalizar de editar la información damos clic al botón editar proveedor para guardar los cambios realizados." />
+                    <p class="description"><p><strong>Paso 1:</strong> editamos los datos deseados.</p><p><strong>Paso 2:</strong> opcionalmente si deseamos no continuar con el proceso de guardado de los datos, podemos regresar al listado de artículos desde el botón volver.</p><p><strong>Paso 3</strong>: al finalizar de editar la información damos clic al botón editar proveedor para guardar los cambios realizados.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3><span class='section-heading'>Proceso eliminar un proveedor</span></h3>
+                    
+                    
+                </div><div class="step">
+                  <br>
+                    <h3>Clic en el botón eliminar</h3>
+                    <img th:src="@{/imgs/37.jpg}" alt="Clic en el botón eliminar Damos clic en el botón eliminar de la fila que deseamos borrar el registro." />
+                    <p class="description"><p>Damos clic en el botón eliminar de la fila que deseamos borrar el registro.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Confirmar eliminación</h3>
+                    <img th:src="@{/imgs/38.jpg}" alt="Confirmar eliminación Al darle clic al botón eliminar nos aparecerá un mensaje de confirmación, presionamos aceptar si lo deseamos eliminar, caso contrario le damos clic a cancelar." />
+                    <p class="description"><p>Al darle clic al botón eliminar nos aparecerá un mensaje de confirmación, presionamos aceptar si lo deseamos eliminar, caso contrario le damos clic a cancelar.</p></p>
+                </div><div class="step">
+                  <br>
+                    <h3>Eliminación exitosa.</h3>
+                    <img th:src="@{/imgs/39.jpg}" alt="Eliminación exitosa. Después de aceptar eliminar el registro nos aparecerá el siguiente mensaje con el nombre del proveedor que fue eliminado con éxito." />
+                    <p class="description"><p>Después de aceptar eliminar el registro nos aparecerá el siguiente mensaje con el nombre del proveedor que fue eliminado con éxito.</p></p>
+                <br>
+                <br>
+                <br><br><br>
+                </div>    
+                
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

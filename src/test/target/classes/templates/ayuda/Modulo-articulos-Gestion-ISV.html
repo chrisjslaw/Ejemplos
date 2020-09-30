@@ -1,0 +1,56 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                   <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    <br>
+                    
+                    <br>
+                </div>
+                
+                
+       <div class="step">
+                    <h3><span class='section-heading'>Módulo de artículos:</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Pantalla editar ISV</h3>
+                    <img th:src="@{/imgs/40.jpg}" alt="Editar ISV En este formulario editaremos el campo ISV que representa el impuesto que manejaran las entradas de artículos.
+
+Para ello realizaremos los siguientes pasos:
+
+Paso 1: Llenamos el campo ISV con el valor de impuesto que se utilice actualmente en el pais por ejemplo:
+actualmente se utiliza el 15% entonces lo introducimos como 1.15, si el valor cambiara a 16% entonces lo introduciriamos como 1.16.
+
+Paso 2: Si no quisieramos realizar ningún cambio o solamente quisieramos ver el valor que tiene el ISV podemos darle clic al botón volver, el cual nos regresa a la pantalla principal.
+
+Paso 3: Si realizamos algún cambio y deseamos guardarlo, damos clic al botón Editar ISV." />
+                    <p class="description"><p>En este formulario editaremos el campo ISV que representa el impuesto que manejaran las entradas de artículos.</p>
+                      <br>
+                    <p>Para ello realizaremos los siguientes pasos:</p>
+                     <p><strong>Paso 1:</strong> Llenamos el campo ISV con el valor de impuesto que se utilice actualmente en el pais por ejemplo: actualmente se utiliza el 15% entonces lo introducimos como 1.15, si el valor cambiara a 16% entonces lo introduciriamos como 1.16.</p><p><strong>Paso 2:</strong> Si no quisieramos realizar ningún cambio o solamente quisieramos ver el valor que tiene el ISV podemos darle clic al botón volver, el cual nos regresa a la pantalla principal.</p><p><strong>Paso 3:</strong> Si realizamos algún cambio y deseamos guardarlo, damos clic al botón Editar ISV.</p></p>
+                <br>
+                <br>
+                <br><br><br>
+                </div>    
+                
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

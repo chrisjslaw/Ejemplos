@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+	</head>
+<body>
+
+	<header th:replace="layout/layout :: header"> </header>
+	
+
+
+<div class="jumbotron">
+  <h1 class="display-4 ">Bienvenido al Sistema de Gestión de Suministros.</h1>
+  <br>
+  
+  <h3><b>Información Sobre AMHON   </b><a sec:authorize="hasAnyRole('ROLE_Super_ADMIN','ROLE_ADMIN')" class="btn btn-primary btn-xs" th:href="@{/info/cambiarInfo}" >Editar Información</a>
+  </h3>
+  <hr class="my-4">
+  
+  <div class="card-deck">
+  <div class="card text-white bg-success mb-3" style="max-width: 30rem;">
+  <div class="card-body">
+    <h4 class="card-title"><b>MISIÓN</b></h4>
+     <p th:text="${inf.mision}"></p> 
+  </div>
+  </div>
+  
+  <div class="card border-success mb-3" style="max-width: 30rem;">
+  <div class="card-body text-success">
+    <h5 class="card-title"><b>VISIÓN</b></h5>
+   <p th:text="${inf.vision}"></p>
+  </div>
+</div>
+
+<div class="card text-white bg-success mb-3" style="max-width: 30rem;">
+  <div class="card-body">
+    <h4 class="card-title"><b>VALORES</b></h4>
+     <p th:text="${inf.valores}"></p>
+  </div>
+  </div>
+</div>
+
+
+ <hr class="my-4">
+ 
+  <h4><b>LÍNEAS ESTRATÉGICAS</b></h4>
+  <div class="card-deck">
+  <div class="card border-success mb-3" style="max-width: 30rem;">
+  <div class="card-body text-success">
+   <h4 class="card-title"><b>Línea 1</b></h4>
+  <p th:text="${inf.l1}"></p>
+  </div>
+  </div>
+  
+  <div class="card text-white bg-success mb-3" style="max-width: 30rem;">
+  <div class="card-body">
+   <h4 class="card-title"><b>Línea 2</b></h4> 
+<p th:text="${inf.l2}"></p>
+</div>
+</div>
+
+ <div class="card border-success mb-3" style="max-width: 30rem;">
+  <div class="card-body text-success">
+   <h4 class="card-title"><b>Línea 3</b></h4>
+        <p th:text="${inf.l3}"></p>
+  </div>
+  </div>
+</div>
+
+ <hr class="my-4">
+
+
+<p class="lead">
+    <a class="btn btn-primary btn-lg" target="_blank" th:href="@{https://www.amhon.org/inicio/}" role="button">Página Web</a>
+  </p>
+</div>
+
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:replace="custom :: customjs" ></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                   <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    <br>
+                    
+                    <br>
+                </div>
+                
+                
+               
+                
+                <div class="step">
+                    <h3><span class='section-heading'>Módulo Inventario - Inventario/kardex General</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Módulo Inventario: Pantalla Kardex General.</h3>
+                    <img th:src="@{/imgs/51.jpg}" alt="Módulo Inventario: Pantalla Kardex General. 1.  Aqui se encuentra la tabla que nos muestra el kardex general con información general de los artículos en inventario como ser: el precio promedio, total de existencias, costo inventario total, total de las salidas y el costo que representa esas salidas.
+
+2. En el número de ID encontramos un botón, el cual al darle clic nos llevara a ver los movimiento de ese articulo en especifico dentro del kardex, ver pantalla de kardex de un articulo específou." />
+                    <p class="description"><p>1.  Aqui se encuentra la tabla que nos muestra el kardex general con información general de los artículos en inventario como ser: el precio promedio, total de existencias, costo inventario total, total de las salidas y el costo que representa esas salidas.</p><p>2. En el número de ID encontramos un botón, el cual al darle clic nos llevara a ver los movimiento de ese articulo en especifico dentro del kardex, ver pantalla de kardex de un articulo específou.</p></p>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Módulo Inventario - kardex específico</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Kardex de un artículo específico</h3>
+                    <img th:src="@{/imgs/52.jpg}" alt="Kardex de un artículo específico 1. Aqui encontramos los datos generales del artículo dentro de su kardex específico como ser: Nombre del artículo, unidada de medida, Categoria.
+2. Dentro de esta tabla encontramos los movimientos en el kardex que se hicieron, en este caso el artículo: archivador tamaño oficio, dentro de la tabla se detalla el tipo de movimiento, la cantidad de articulos en el movimiento cual fue el precio unitario de ese movimiento en esa fecha.
+
+3. Filtro de búsqueda: filtro de busqueda general en el cual se puede filtrar la busqueda por ejemplo por movimiento: buscamos entrada osalida, asi mismo podemos buscar por la fecha de la siguiente forma12-06-09.
+
+4. Opciones para exportar: Con estas opciones podemos exportar todos los movimientos de la tabla del kardex específico a formato PDF y Excel o solamente copiarlo para pegarlo en algún documento o editor de texto. " />
+                    <p class="description"><p>1. Aqui encontramos los datos generales del artículo dentro de su kardex específico como ser: Nombre del artículo, unidada de medida, Categoria.</p><p>2. Dentro de esta tabla encontramos los movimientos en el kardex que se hicieron, en este caso el artículo: archivador tamaño oficio, dentro de la tabla se detalla el tipo de movimiento, la cantidad de articulos en el movimiento cual fue el precio unitario de ese movimiento en esa fecha.</p><p>3. Filtro de búsqueda: filtro de busqueda general en el cual se puede filtrar la busqueda por ejemplo por movimiento: buscamos "entrada" o"salida", asi mismo podemos buscar por la fecha de la siguiente forma"12-06-09".</p><p>4. Opciones para exportar: Con estas opciones podemos exportar todos los movimientos de la tabla del kardex específico a formato PDF y Excel o solamente copiarlo para pegarlo en algún documento o editor de texto. </p></p>
+                <br>
+                <br>
+                <br><br><br>
+                </div>    
+                
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

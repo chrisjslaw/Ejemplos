@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<script type="text/javascript" th:fragment="isv">
+
+$( document ).ready( function (){ 
+  
+        
+ /*  $( "form" ).submit(function(event){
+      if ($("#pw").val()< 6 ){
+      	$("#pw").css("border-color", "red");
+      	$("#pwc").css("border-color", "red");
+      	$('#err').text('Las Contrasenas deben contener m�s de 6 caracteres');
+      	event.preventDefault();
+      }else{
+      	$('#err').text('');
+      }
+      
+      }); */
+  //inicio de plugin tablas
+
+  
+
+  
+  $("#check_").change(function(){
+	  if($(this).is(":checked")){
+			var precio = $("#precio_").val() ? parseFloat($("#precio_").val()) :0;
+ 			var isv = $("#isv_").val() ? parseFloat($("#isv_").val()) :0;
+ 			var isvC = isv/100;
+ 			var precimp=(parseFloat(precio)*parseFloat(isvC)+parseFloat(precio)).toFixed(4);
+ 			
+ 			$('<input>').attr('value', $('#precio_').val(precimp)); 
+ 			
+	 } else {
+		 var precio = $("#precio_").val() ? parseFloat($("#precio_").val()) :0;
+		 var isv = $("#isv_").val() ? parseFloat($("#isv_").val()) :0;
+		 var isvC = 1+(isv/100);
+		 var precioin=(parseFloat(precio)/parseFloat(isvC)).toFixed(4);
+		 $('<input>').attr('value', $('#precio_').val(precioin)); 
+	 }
+	 });
+      
+    });
+
+</script>
+</body>
+</html>

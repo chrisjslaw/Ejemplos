@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"> </header>
+
+
+	<div class="container py-4">
+		<div class="card bg-light border-dark">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+				<h4 class="card-title">
+					<a sec:authorize="hasAnyRole('ROLE_Super_ADMIN','ROLE_ADMIN')" th:href="@{/requisicion/listaRequisiciones}"
+						class="btn btn-light btn-xs">&laquo; Volver</a>
+						
+						<a target="_blank" th:href="@{'/requisicion/verDetalleRequisicion/'+ ${requisicion.id_requi}(format=pdf)}"
+						class="btn btn-danger btn-xs float-right">PDF</a>
+						
+						<a sec:authorize="hasAnyRole('ROLE_Gerente_Financiero','ROLE_USER')" th:href="@{/requisicion/misRequisiciones}"
+						class="btn btn-light btn-xs">&laquo; Volver</a>
+				</h4>
+
+				<ul class="list-group my-2">
+					<li class="list-group-item list-group-item-primary"
+						>Datos del Generales <a class="btn btn-danger btn-sm float-right mr-1" sec:authorize="hasAnyRole('ROLE_Super_ADMIN','ROLE_ADMIN')" th:if="${requisicion.estado != 'Anulada'}"
+ 								th:href="@{'/requisicion/anularRequisicion/' + ${requisicion.id_requi}}" onclick="return confirm('Estas seguro que quieres Anular la requisición?');" th:text="Anular" ></a></li>
+					<li class="list-group-item" th:text="'Solicitante: '+ ${requisicion.usuario.nombreCompleto}"></li>
+					<li class="list-group-item" th:text="'Departamento: '+ ${requisicion.departamento}"></li>
+					<li class="list-group-item" th:text="'Fecha: ' + ${#dates.format(requisicion.fecha, 'dd-MM-yyyy')}"></li> 
+					<li th:if="${not #strings.isEmpty(requisicion.fecha_aprob)}" class="list-group-item" th:text="'Fecha Entrega: ' + ${#dates.format(requisicion.fecha_aprob, 'dd-MM-yyyy')}"></li>
+					<li class="list-group-item" th:text="'Estado: ' + ${requisicion.estado}"></li>
+					<li th:if="${not #strings.isEmpty(requisicion.entregado_por)}" class="list-group-item" th:text="'Entregado por: ' + ${requisicion.entregado_por}"></li>
+				</ul>
+
+				<div class="aler alert-info my-4"
+					th:if="${#lists.isEmpty(requisicion.lineasRe)}"
+					th:text="'No hay lineas para la requisicion'"></div>
+
+				<table th:if="${not #lists.isEmpty(requisicion.lineasRe)}"
+					class="table table-hover table-bordered my-3" style="text-align: center;">
+					<thead class="thead-dark">
+						<tr>
+							<th>Producto</th>
+							<th>Precio</th>
+							<th>Cantidad</th>
+							<th>Total</th>
+							<th th:if="${requisicion.estado == 'Pendiente'}">Editar</th>
+							<th th:if="${requisicion.estado == 'Pendiente'}" >Eliminar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="linea: ${requisicion.lineasRe}">
+							<td th:text="${linea.articulo.nombre}"></td>
+							<td
+								th:text="${#numbers.formatDecimal(linea.precio,2,'COMMA',2,'POINT')}"></td>
+							<td th:text="${linea.cantidad}"></td>
+							<td
+								 th:text="${#numbers.formatDecimal(linea.calcularImportePrecProm(),2,'COMMA',2,'POINT')}"></td>
+								<td th:if="${requisicion.estado == 'Pendiente'}" sec:authorize="isFullyAuthenticated()"><a class="btn btn-primary btn-xs"
+								th:href="@{'/requisicion/formEditarDetalleRequisicion/' + ${linea.id_det_req}}" th:text='editar'></a></td>
+								<td th:if="${requisicion.estado == 'Pendiente'}" sec:authorize="isFullyAuthenticated()"><a class="btn btn-danger btn-xs"
+								th:href="@{/requisicion/eliminarDetalleRequisicion/} + ${linea.id_det_req}" th:text='eliminar'
+								onclick="return confirm('Estas seguro que quieres Eliminar?');"></a></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h5 class="float-right">
+					Gran Total <span
+						th:text="${#numbers.formatDecimal(requisicion.total,2,'COMMA',2,'POINT')}"
+						class="badge badge-secondary"></span>
+				</h5>
+				
+				<div th:if="${not #strings.isEmpty(requisicion.motivo)}" class="card border-info mb-6" style="max-width: 28rem;">
+				<div th:if="${not #strings.isEmpty(requisicion.motivo)}" class="card-header">Motivo de Rechazo o de Requisición especial:</div>
+				<div class="card-body">
+				<p class="card-text" th:text="${requisicion.motivo}" th:if="${not #strings.isEmpty(requisicion.motivo)}"></p>
+				<h4 class="card-title" th:if="${#strings.isEmpty(requisicion.motivo)}" ></h4>
+				</div>
+				</div>
+				
+				<a sec:authorize="hasAnyRole('ROLE_Super_ADMIN','ROLE_ADMIN')" th:href="@{/requisicion/listaRequisiciones}"
+						class="btn btn-light btn-xs">&laquo; volver</a>
+						
+						<a sec:authorize="hasAnyRole('ROLE_Gerente_Financiero','ROLE_USER')" th:href="@{/requisicion/misRequisiciones}"
+						class="btn btn-light btn-xs">&laquo; volver</a>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:replace="requisicion/customDTRequisicion :: customjs"></script>
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/sc-2.0.0/datatables.min.css" />
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/sc-2.0.0/datatables.min.js"></script>
+</body>
+</html>

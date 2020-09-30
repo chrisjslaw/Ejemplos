@@ -1,0 +1,77 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                    <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    
+                    <br>
+                    
+                    <br>
+                </div><div class="step">
+                    <h3>Pantalla de inicio</h3>
+                    <img th:src="@{/imgs/1.jpg}" alt="Pantalla de inicio Sección 1: Botón de iniciar Sesión la cual nos llevara al formulario que nos pedira nuestro nombre de usuario y contraseña. 
+                    Es necesario iniciar sesión para poder utilizar el sistema, en caso de no contar con usuario ni contraseña favor solicitarlo al jefe de informática.
+Sección 2: Esta sección contiene la información Básica de AMHON, como ser: Misión, Visión, Valores y Las diferentes lineas estrategicas.
+Sección 3: esta sección se encuentra la ayuda." />
+                    <br>
+                    <p class="description"><p><strong>Sección 1:</strong> Botón de iniciar Sesión la cual nos llevara al formulario que nos pedira nuestro nombre de usuario y contraseña. <strong>Es necesario iniciar sesión para poder utilizar el sistema, en caso de no contar con usuario ni contraseña favor solicitarlo al jefe de informática.</strong></p>
+                    <br>
+                    <p><strong>Sección 2: </strong>Esta sección contiene la información Básica de AMHON, como ser: Misión, Visión, Valores y Las diferentes lineas estrategicas.</p>
+                    <br>
+                    <p><strong>Sección 3: </strong>esta sección se encuentra la ayuda.</p></p>
+                    <br>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Pantalla Inicio Sesión</span></h3>
+                    <br>
+                    
+                </div><div class="step">
+                    <h3>Proceso Iniciar Sesión: Llenar el formulario.</h3>
+                    <img th:src="@{/imgs/2.jpg}" />
+                    <p class="description"><p><strong>Paso1:</strong> Primero ingresamos el nombre de usuario con el cual se creo la cuenta.</p>
+                    <br>
+                    <p><strong>Paso 2</strong>: Ingresamos la contraseña que utilizamos al crear la cuenta.</p></p>
+                    <br>
+                </div><div class="step">
+                    <h3>Botón Iniciar sesión</h3>
+                    <img th:src="@{/imgs/3.jpg}" />
+                    <br>
+                    <p class="description"><p><strong>Paso 3</strong>:Una vez ingresado el nombre de usuario y contraseña le damos click al boton iniciar sesión, luego si nuestro nombre de usuario es correcto ingresaremos al sistema.</p></p>
+                </div>
+                <br>
+                <div class="step">
+                    <h3><span class='section-heading'>Pantalla Principal</span></h3>
+                    <br>
+                    
+                </div><div class="step">
+                    <h3>Mensaje de bienvenida de inicio de sesión correcto</h3>
+                    <img th:src="@{/imgs/4.jpg}" />
+                    <p class="description"><p><strong>Sección 1</strong>: En esta sección encontraremos el mensaje de bienvenida al usuario.</p>
+                    <br>
+                    <p><strong>Sección 2</strong>: Aqui encontraremos la barra de navegación, la cual contiene los enlaces para los diferentes módulos del sistema dependiendo de los permisos de usuario.</p>
+                    <br>
+                    <p><strong>Sección 3:</strong> Aquí encontraremos nuestro perfil con nuestro nombre de usuario y este nos dará acceso a poder cerrar sesión.</p>
+                    <br>
+                    <p><strong>Sección 4: </strong>Esta sección contiene la información Básica de AMHON, como ser: Misión, Visión, Valores y Las diferentes lineas estrategicas.</p></p>
+                <br>
+                <br><br><br><br><br>
+               </div>
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

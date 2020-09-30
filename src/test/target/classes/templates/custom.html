@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<script type="text/javascript" th:fragment="customjs">
+
+$( document ).ready( function (){ 
+  $( "form" ).submit(function(event){
+        if ($("#pw").length() !== $("#pwc").val() ){
+        	$("#pw").css("border-color", "red");
+        	$("#pwc").css("border-color", "red");
+        	$('#err').text('Las Contrasenas no coinciden');
+        	event.preventDefault();
+        }else{
+        	$('#err').text('');
+        }
+        
+        });
+ /*  $( "form" ).submit(function(event){
+      if ($("#pw").val()< 6 ){
+      	$("#pw").css("border-color", "red");
+      	$("#pwc").css("border-color", "red");
+      	$('#err').text('Las Contrasenas deben contener más de 6 caracteres');
+      	event.preventDefault();
+      }else{
+      	$('#err').text('');
+      }
+      
+      }); */
+  //inicio de plugin tablas
+
+  
+
+  
+ 
+  $("#chckbx").change(function(){
+	  if($(this).is(":checked")){
+	   $("#pw").attr("type","text");
+	   $("#pwc").attr("type","text");
+	 } else {
+	  $("#pw").attr("type","password");
+	  $("#pwc").attr("type","password");
+	 }
+	 });
+      
+    });
+
+</script>
+</body>
+</html>

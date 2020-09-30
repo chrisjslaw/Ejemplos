@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"> </header>
+<br>
+
+<div align="center" class="container py-4">
+					<div align="center" class="col-sm-8 ">
+					<h1  align="center">Listado de Reportes</h1>
+		<div  align="center" class="list-group">
+						<ol>
+			<li><a th:href="@{/reportes/formReporteEntradaXfechas}" class="list-group-item list-group-item-action  border border-secondary text-primary"><b>--Reporte: Entradas filtradas por fecha.</b></a> </li>
+				<li><a th:href="@{/reportes/formReporteRequisicionXfechas}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Reporte: Requisiciones filtradas por fecha.</b></a></li> 
+				<li><a th:href="@{/reportes/formReporteKardexXfechas}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Reporte: Movimientos en inventario kardex por rango de fecha.</b></a></li>
+				<li><a th:href="@{/reportes/formReporteArticulosXfechasxProveedores}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Reporte: Artículo entrante por proveedor especifico.</b></a></li> 
+				<li><a th:href="@{/reportes/formReporteCantxArticulosEntrantesXfechas}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Reporte: Cantidad de artículos entrantes en un rango de fechas.</b></a></li> 
+				<li><a th:href="@{/reportes/formReporteArticulosEntregadosXfechas}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Reporte: Cantidad de salida de articulos en un rango de fechas.</b></a> </li>
+				<li><a th:href="@{/reportes/formReporteEntradasxArticuloXfechas}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Reporte: Entradas por articulo especifico y rango de fechas.</b></a></li>
+				<li><a th:href="@{/reportes/formReporteRequisicionesEntregadasxUsuariosxFechas}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Reporte: Articulos entregados a usuarios filtrados por rango de fechas.</b></a></li>
+	            <li><a th:href="@{/reportes/formReporteUsuarioxReqxFechas}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Reporte: Requisiciones por usuario especifico en un rango de fechas.</b></a></li>
+				<li><a th:href="@{/reportes/formReporteGastosxDepartamentosxFechas}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Reporte: Gastos en departamentos filtrado por rango de fechas.</b></a></li>
+				<li><a th:href="@{/reportes/formReporteGastosxDepartmEspecifixFechas}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Reporte: Gastos por departamento especifico en un rango de fechas.</b></a></li>
+				<li><a th:href="@{/reportes/formReporteUsuariosxDepartamento}" class="list-group-item list-group-item-action border border-secondary text-primary"><b>--Reporte: Usuarios listados por departamento</b></a></li>
+		</ol>
+		</div>
+	</div>
+</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:replace="categoria/customDTCategoria :: dtcate"></script>
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/sc-2.0.0/datatables.min.css" />
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/sc-2.0.0/datatables.min.js"></script>
+</body>
+</html>

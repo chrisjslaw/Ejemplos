@@ -1,0 +1,67 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                   <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    <br>
+                    
+                    <br>
+                </div>
+                
+                
+               
+                  <  
+                <div class="step">
+                    <h3><span class='section-heading'>Módulo de reportes y Gráficas</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3><span class='section-heading'>Pantalla Lista de Reportes</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Pantalla Listado de Reportes.</h3>
+                    <img th:src="@{/imgs/77.jpg}" alt="Pantalla Listado de Reportes. En esta pantalla en el rectángulo rojo encontraremos la lista de los reportes disponibles en el sistema, al darle clic a cualquiera de los reportes nos lleva al formulario donde nos pedira llenar los filtros necesarios." />
+                    <p class="description"><p>En esta pantalla en el rectángulo rojo encontraremos la lista de los reportes disponibles en el sistema, al darle clic a cualquiera de los reportes nos lleva al formulario donde nos pedira llenar los filtros necesarios.</p></p>
+                </div><div class="step">
+                    <h3><span class='section-heading'>Tipos de filtros de reportes</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Filtro por fecha.</h3>
+                    <img th:src="@{/imgs/78.jpg}" alt="Filtro por fecha.   1. En este campo ponemos la fecha inicial desde donde se tomarán los datos, por ejemplo, si deseamos registros desde el 5/03/18 la fecha 05/03/18 no aparecerán los registros de dicha fecha, para que aparezcan debemos darle un día antes, en todo caso el 04/03/18.
+2.En este campo ponemos la fecha final hasta donde se tomarán los datos, por ejemplo, si deseamos registros hasta el 20/03/18, los registros de la fecha 20/03/18 no aparecerán, para que aparezcan debemos darle un día después, en todo caso sería el 21/03/18. 
+3. Botón Buscar: Una vez llenados los campos de fechas este botón generará el reporte solicitado." />
+                    <p class="description"><p>  1. En este campo ponemos la fecha inicial desde donde se tomarán los datos, por ejemplo, si deseamos registros desde el 5/03/18 la fecha 05/03/18 no aparecerán los registros de dicha fecha, para que aparezcan debemos darle un día antes, en todo caso el 04/03/18.</p><p>2.En este campo ponemos la fecha final hasta donde se tomarán los datos, por ejemplo, si deseamos registros hasta el 20/03/18, los registros de la fecha 20/03/18 no aparecerán, para que aparezcan debemos darle un día después, en todo caso sería el 21/03/18. </p><p>3. Botón Buscar: Una vez llenados los campos de fechas este botón generará el reporte solicitado.</p></p>
+                </div><div class="step">
+                    <h3>Filtrado por fecha y campo específico.</h3>
+                    <img th:src="@{/imgs/79.jpg}" alt="Filtrado por fecha y campo específico.   1. En este campo ponemos la fecha inicial desde donde se tomarán los datos, por ejemplo, si deseamos registros desde el 5/03/18 la fecha 05/03/18 no aparecerán los registros de dicha fecha, para que aparezcan debemos darle un día antes, en todo caso el 04/03/18.
+2.En este campo ponemos la fecha final hasta donde se tomarán los datos, por ejemplo, si deseamos registros hasta el 20/03/18, los registros de la fecha 20/03/18 no aparecerán, para que aparezcan debemos darle un día después, en todo caso sería el 21/03/18. 
+3.Campo específico: en este campo se nos desplegara una lista con las opciones disponibles, de las cuales debemos seleccionar una opción específica para filtrar el reporte.
+4. Botón Buscar: Una vez llenados los campos de fechas este botón generará el reporte solicitado." />
+                    <p class="description"><p>  1. En este campo ponemos la fecha inicial desde donde se tomarán los datos, por ejemplo, si deseamos registros desde el 5/03/18 la fecha 05/03/18 no aparecerán los registros de dicha fecha, para que aparezcan debemos darle un día antes, en todo caso el 04/03/18.</p><p>2.En este campo ponemos la fecha final hasta donde se tomarán los datos, por ejemplo, si deseamos registros hasta el 20/03/18, los registros de la fecha 20/03/18 no aparecerán, para que aparezcan debemos darle un día después, en todo caso sería el 21/03/18. </p><p>3.Campo específico: en este campo se nos desplegara una lista con las opciones disponibles, de las cuales debemos seleccionar una opción específica para filtrar el reporte.</p><p>4. Botón Buscar: Una vez llenados los campos de fechas este botón generará el reporte solicitado.</p></p>
+                <br>
+                <br>
+                <br><br><br>
+                </div>    
+                
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

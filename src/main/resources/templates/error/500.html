@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="es">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	<hr>
+	<br>
+	<br>
+	<div class="container py-4">  
+	
+	<div class="card bg-light">
+	<div class="card-header">Error: Contacte con el administrador!</div>
+	<div class="card-body">
+	
+	<h5 class="card-title"><i class="far fa-frown fa-4x"></i> Lo sentimos <span sec:authentication="name"></span> , Ha ocurrido un error, Por favor contacte al administrador del sistema.</h5>
+	<a th:href="@{/}" class="btn btn-light" role="button"><i class="fas fa-home fa-lg"></i> Ir al inicio</a>
+	</div>
+	</div>
+    </div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

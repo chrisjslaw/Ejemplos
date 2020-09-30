@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+	<header th:replace="layout/layout :: header"> </header>
+
+	<div class="container py-4 ">
+		<div class="card bg-light border-dark">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+			<a class="btn btn-light btn-xs"
+						th:href="@{/articulos/listaArticulos}"
+						th:text="'&laquo; volver'"></a>
+			<div th:object="${articulo}" th:remove="tag">
+			<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger" role="alert">
+			<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+			</ul>
+			</div>
+
+				<form th:action="@{/articulos/formArticulo}" method="post">
+
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Nombre Artículo</b></label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{articulo.nombre}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('articulo.nombre')}" th:errors="*{articulo.nombre}"></small>
+						</div>
+					</div>
+
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Unidad de Medida</b></label>
+						<div class="col-sm-6">
+							<select data-live-search="true" data-live-search-style="startsWith" name="usuar"
+								class="selectpicker" th:field="*{articulo.unidadMedida}"
+								>
+									<option th:each="unidad: ${unidades}"
+										th:text="*{unidad.nombre_unid}"
+										th:value="*{unidad.id_unidad}"></option>
+							</select> <!-- <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('id_prov')}" th:errors="*{id_prov}"></small> -->
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Categoria de Articulo</b></label>
+						<div class="col-sm-6">
+							<select data-live-search="true" data-live-search-style="startsWith" name="cat"
+								class="selectpicker" th:field="*{articulo.categoria}"
+								>
+									<option th:each="categoria: ${categorias}"
+										th:text="*{categoria.nombre}"
+										th:value="*{categoria.id_categ}"></option>
+							</select> <!-- <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('id_prov')}" th:errors="*{id_prov}"></small> -->
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Código de barra</b></label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{articulo.cod_barra}" class="form-control" th:errorclass="'form-control alert-danger'"/> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('articulo.cod_barra')}" th:errors="*{articulo.cod_barra}"></small>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Observación</b></label>
+						<div class="col-sm-6">
+							<textarea th:field="*{articulo.observacion}" class="form-control" th:errorclass="'form-control alert-danger'"></textarea>
+							<small class="form-text text-danger"
+								th:if="${#fields.hasErrors('articulo.observacion')}" th:errors="*{articulo.observacion}"></small>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Stock Mínimo del Artículo</b></label>
+						<div class="col-sm-6">
+							<input type="number" min="1" step="1" th:field="*{articulo.stock_min}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+							<small class="form-text text-danger"
+								th:if="${#fields.hasErrors('articulo.stock_min')}" th:errors="*{articulo.stock_min}"></small>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Requisición Máxima del Artículo</b></label>
+						<div class="col-sm-6">
+							<input type="number" min="0" step="1" th:field="*{articulo.req_max}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+							<small class="form-text text-danger"
+								th:if="${#fields.hasErrors('articulo.req_max')}" th:errors="*{articulo.req_max}"></small>
+						</div>
+					</div>
+					
+
+					<div class="form-group">
+						<div class="col-sm-6">
+							<input type="submit" th:value="${textoBoton}"
+								class="btn btn-primary" />
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

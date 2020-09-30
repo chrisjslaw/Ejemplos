@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+	</head>
+<body>
+
+	<header th:replace="layout/layout :: header"> </header>
+	
+<!-- 		<div class="progress"> -->
+<!--   <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="79" aria-valuemin="0" aria-valuemax="100" style="width: 79%"></div> -->
+<!-- </div> -->
+
+<div class="jumbotron">
+  <h1 class="display-4 ">Bienvenido al Sistema de Gestión de Suministros.</h1>
+  <br>
+  <h3><b>Información Sobre AMHON</b></h3>
+  <hr class="my-4">
+  
+  <div class="card-deck">
+  <div class="card text-white bg-success mb-3" style="max-width: 30rem;">
+  <div class="card-body">
+    <h4 class="card-title"><b>VISIÓN</b></h4>
+    <p >La Asociación de municipios de Honduras representa de forma eficiente los intereses gremiales que fortalecen el desempeño de los gobiernos municipales y su contribución al desarrollo de los municipios.
+</p>
+  </div>
+  </div>
+  
+  <div class="card border-success mb-3" style="max-width: 30rem;">
+  <div class="card-body text-success">
+    <h5 class="card-title"><b>MISIÓN</b></h5>
+     <p >Somos la asociación representativa de todos los municipios socios de Honduras que se encarga de promover y facilitar el desarrollo integral de sus miembros y de fortalecer la democracia y la gobernabilidad local.
+</p>
+  </div>
+</div>
+
+<div class="card text-white bg-success mb-3" style="max-width: 30rem;">
+  <div class="card-body">
+    <h4 class="card-title"><b>VALORES</b></h4>
+     <p >Transparencia, veracidad, integridad, solidaridad, responsabilidad, respeto, beligerancia, civismo y gobernabilidad.
+</p>
+  </div>
+  </div>
+</div>
+
+
+ <hr class="my-4">
+ 
+  <h4><b>LÍNEAS ESTRATÉGICAS</b></h4>
+  <div class="card-deck">
+  <div class="card border-success mb-3" style="max-width: 30rem;">
+  <div class="card-body text-success">
+   <h4 class="card-title"><b>Linea 1</b></h4>
+  <p >Fortalecimiento y modernización de la gestión institucional para mejorar las capacidades de servicios a los municipios: son los esfuerzos orientados a identificar debilidades y proponer soluciones para que la AMHON cumpla con sus funciones estatutarias de forma eficiente y eficaz, considerando el desarrollo intelectual de sus empleados, el uso óptimo de la tecnología disponible y un crecimiento continuo que le permita ofrecer mejores servicios a los municipios.
+  </div>
+  </div>
+  
+  <div class="card text-white bg-success mb-3" style="max-width: 30rem;">
+  <div class="card-body">
+   <h4 class="card-title"><b>Linea 2</b></h4>
+<p>Promover y facilitar el Desarrollo Integral de los Municipios: promover mediante la incidencia política y la asistencia técnica, un proceso de transformación multi-dimensional, sistémico, sostenible e incluyente, en los municipios del país, en las mancomunidades y regiones, bajo el liderazgo de los gobiernos municipales, a efectos de lograr de forma planificada y articulada con diferentes actores públicos y privados, el bienestar económico y social de la población, en armonía y equilibrio con el ambiente.
+</p>
+</div>
+</div>
+
+ <div class="card border-success mb-3" style="max-width: 30rem;">
+  <div class="card-body text-success">
+   <h4 class="card-title"><b>Linea 3</b></h4>
+        <p>Promover y Facilitar el Mejoramiento del Desempeño Municipal: poner a disposición de las municipalidades, una serie de mecanismos técnicos, legales y administrativos, que sirvan para guiar y mejorar el desempeño municipal bajo criterios de eficiencia, eficacia, transparencia, rendición de cuentas y participación ciudadana.</p>
+  </div>
+  </div>
+</div>
+
+ <hr class="my-4">
+
+
+<p class="lead">
+    <a class="btn btn-primary btn-lg" th:href="@{https://www.amhon.org/inicio/}" role="button">Pagina Web</a>
+  </p>
+</div>
+
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<script type="text/javascript" th:fragment="javascript">
+
+$(document).ready(function(){
+	var urlAjax =$("#url").val();
+	$("#buscar_articulo").autocomplete({
+		
+		source: function(request, response){
+			$.ajax({
+				url: urlAjax + request.term,
+				dataType: "json",
+				data: {
+					term: request.term
+				},
+				success: function(data){
+					response($.map(data, function(item){
+						return {
+							value: item.id_artic,
+							label: item.nombre,
+							uprec: item.ultimo_precio
+						};
+					}).slice(0, 10));
+				},
+				
+			});
+		},
+		
+	    focus: function(event, ui){
+	        event.preventDefault();
+	        $('input[name="buscar_articulo"]').val(ui.item.label);
+	    },
+		
+		select: function(event, ui){
+			//$("#buscar_producto").val(ui.item.label);
+			if(itemsHelper.hasArticulo(ui.item.value)){
+				itemsHelper.incrementaCantidad(ui.item.value);
+				return false;
+			}
+			
+			var linea= $("#plantillaItemsMovimiento").html();
+		      
+			linea= linea.replace(/{ID}/g, ui.item.value);
+			linea= linea.replace(/{NOMBRE}/g, ui.item.label);
+			linea= linea.replace(/{UPRECIO}/g, ui.item.uprec.toFixed(4));
+			$("#cargarItemProductos tbody").append(linea);
+			itemsHelper.calcularImporte(ui.item.value,1);
+			itemsHelper.calcularImportePrec(ui.item.value, 0);
+			
+			return false;
+		}
+	});
+	
+	$("form").submit(function(){
+		$("#plantillaItemsMovimiento").remove();
+		return;
+	});
+	
+});
+    
+    var itemsHelper = {
+    		 calcularImporte: function(id, cantidad){
+    			 var precio = $("#precio_" + id).val() ? parseFloat($("#precio_" + id).val()) :0;
+    			 var isv = $("#isv_").val() ? parseFloat($("#isv_").val()) :0;
+    			 var isvC = isv/100;
+    			 
+    			 if($("#check_"+id).is(":checked")){
+    				 var totimp=(parseFloat(precio) * parseFloat(cantidad)*parseFloat(isvC)+(parseFloat(precio) * parseFloat(cantidad))).toFixed(4);
+    				 var precimp=(parseFloat(precio)*parseFloat(isvC)+parseFloat(precio)).toFixed(4);
+    				 $("#total_isv_" + id).html(precimp+'Lps');
+    				 $("#total_importe_" + id).html(totimp+'Lps');
+    				 $('<input>').attr('value', $('#precioIsv_'+id).val(precimp));
+    				 this.calcularGranTotal();
+    				 console.log( "Entro al checked!" );
+    				 }else{
+    					 var totimp= (parseFloat(precio) * parseFloat(cantidad)).toFixed(4);
+    					 var precimp=(parseFloat(precio)).toFixed(4);
+        				 $("#total_isv_" + id).html(precimp+'Lps');
+    					 $("#total_importe_" + id).html(totimp+'Lps');
+    					 $('<input>').attr('value', $('#precioIsv_'+id).val(precimp));
+    					 this.calcularGranTotal();
+    				 }
+    			
+    		},
+    		
+    		
+    		calcularImportePrec: function(id, precio){
+      			 var cantidad = $("#cantidad_" + id).val() ? parseFloat($("#cantidad_" + id).val()) :0;
+      			var isv = $("#isv_").val() ? parseFloat($("#isv_").val()) :0;
+      			var isvC = isv/100;
+      			
+      			if($("#check_"+id).is(":checked")){
+      		     var totimp=(parseFloat(precio) * parseFloat(cantidad)*parseFloat(isvC)+(parseFloat(precio) * parseFloat(cantidad))).toFixed(4);
+      		     var precimp=(parseFloat(precio)*parseFloat(isvC)+parseFloat(precio)).toFixed(4);
+				 $("#total_isv_" + id).html(precimp+'Lps');
+      				$("#total_importe_" + id).html(totimp+'Lps');
+      				$('<input>').attr('value', $('#precioIsv_'+id).val(precimp));
+      			this.calcularGranTotal();
+				 console.log( "Entro al checked import precio!" );
+				 }else{
+					var totimp=(parseFloat(precio) * parseFloat(cantidad)).toFixed(4);
+					 var precimp=(parseFloat(precio)).toFixed(4);
+    				 $("#total_isv_" + id).html(precimp+'Lps');
+					 $("#total_importe_" + id).html(totimp+'Lps');
+					 $('<input>').attr('value', $('#precioIsv_'+id).val(precimp));
+					 this.calcularGranTotal();
+				 }
+      		},
+      		
+      		calcularImporteCheck: function(id){
+      			var precio = $("#precio_" + id).val() ? parseFloat($("#precio_" + id).val()) :0;
+     			var cantidad = $("#cantidad_" + id).val() ? parseFloat($("#cantidad_" + id).val()) :0;
+     			var isv = $("#isv_").val() ? parseFloat($("#isv_").val()) :0;
+     			var isvC = isv/100;
+     			
+     			if($("#check_"+id).is(":checked")){
+     		     var totimp=(parseFloat(precio) * parseFloat(cantidad)*parseFloat(isvC)+(parseFloat(precio) * parseFloat(cantidad))).toFixed(4);
+       		     var precimp=(parseFloat(precio)*parseFloat(isvC)+parseFloat(precio)).toFixed(4);
+				 $("#total_isv_" + id).html(precimp+'Lps');
+     				$("#total_importe_" + id).html(totimp+'Lps');
+     				$('<input>').attr('value', $('#precioIsv_'+id).val(precimp));
+     			this.calcularGranTotal();
+				 console.log( "Entro al checked import precio!" );
+				 }else{
+					 var totimp= (parseFloat(precio) * parseFloat(cantidad)).toFixed(4);
+					 var precimp=(parseFloat(precio)).toFixed(4);
+    				 $("#total_isv_" + id).html(precimp+'Lps');
+					 $("#total_importe_" + id).html(totimp+'Lps');
+					$('<input>').attr('value', $('#precioIsv_'+id).val(precimp));
+					 this.calcularGranTotal();
+				 }
+     		},
+    		 
+    		hasArticulo: function(id){
+    			var resultado = false;
+    			$('input[name="item_id[]"]').each(function(){
+    				if(parseInt(id) == parseInt($(this).val()) ){
+    					resultado = true;
+    				}
+    				
+    			});
+    			return resultado;
+    		},
+    		
+    		incrementaCantidad: function(id){
+    			var cantidad = $("#cantidad_" + id).val() ? parseInt($("#cantidad_" + id).val()) :0;
+    			$("#cantidad_" + id).val(++cantidad);
+    			this.calcularImporte(id, cantidad);
+    			this.calcularImportePrec(id, precio);
+    		},
+    		eliminarLineaFactura: function(id){
+    			$("#row_" +id).remove();
+    		} ,
+    		calcularGranTotal: function(){
+    			var total = 0;
+    			
+    			$('span[id^="total_importe_"]').each(function(){
+    				total +=parseFloat($(this).html());
+    			});
+    			var tot= total.toFixed(4);
+    			$('#gran_total').html(tot+'Lps');
+    		} 
+    		
+          }
+    
+    $("#test").inputmask({
+		mask: "99[9-999-99]-[99999999]",
+	});
+</script>
+</body>
+</html>

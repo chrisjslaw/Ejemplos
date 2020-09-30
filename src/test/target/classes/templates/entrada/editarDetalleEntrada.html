@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+	<header th:replace="layout/layout :: header"> </header>
+
+	<div class="container py-4 ">
+		<div class="card bg-light border-dark">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+			<a class="btn btn-light btn-xs"
+						th:href="@{'/entrada/verDetalleEntrada/'+ ${entrada.id_entrada}}"
+						th:text="'&laquo; volver'"></a>
+			<div th:object="${detmov}" th:remove="tag">
+			<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger" role="alert">
+			<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+			</ul>
+			</div>
+
+				<form th:action="@{/entrada/editarDetalleEntrada}" method="post">
+
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Articulo</b></label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{detmov.articulo.nombre}" class="form-control"
+								th:errorclass="'form-control alert-danger'" disabled='disabled'/>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Cantidad</b></label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{detmov.cantidad}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+							<small class="form-text text-danger"
+								th:if="${#fields.hasErrors('detmov.cantidad')}" th:errors="*{detmov.cantidad}"></small>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"><b>Precio</b></label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{detmov.precio}" class="form-control" id="precio_" th:errorclass="'form-control alert-danger'"/> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('detmov.precio')}" th:errors="*{detmov.precio}"></small>
+								<td align="center"><input id="check_" type="checkbox"/> ISV</td>
+						</div>
+					</div>
+				
+				
+					
+					
+					<td class="d-none"><input type="hidden" th:value="${isv.valor}" th:field="*{isv.valor}"
+					id="isv_"/></td>
+
+					<input type="hidden" th:field="*{detmov.id_det_entr}"/>
+					<input type="hidden" th:field="*{detmov.tipo_mov}"/>
+					<input type="hidden" th:field="*{detmov.articulo}"/>
+
+					<div class="form-group">
+						<div class="col-sm-6">
+							<input type="submit" th:value="${textoBoton}"
+								class="btn btn-primary" />
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:replace="entrada/js/isv :: isv" ></script>
+</body>
+</html>

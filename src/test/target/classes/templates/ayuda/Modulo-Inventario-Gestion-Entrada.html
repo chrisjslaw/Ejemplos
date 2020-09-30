@@ -1,0 +1,142 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                   <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    <br>
+                    
+                    <br>
+                </div>
+                
+                
+                 <div class="step">
+                    <h3><span class='section-heading'>Módulo Inventario:</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Pantalla Administración de Entradas</h3>
+                    <img th:src="@{/imgs/41.jpg}" alt="Pantalla Administración de Entradas La pantalla muestra la tabla de Entradas con la información de cada uno.
+1-  Botón Realizar entrada: desde aquí podremos acceder a agregar una nueva entrada en el sistema.
+
+2- Botones exportación: permite copiar y exportar la información de la tabla categoría a pdf y excel a manera de reporte general.
+
+3- Campo de búsqueda para filtrar los datos por ejemplo: si escribimos papel solo aparecen los registros que contengan papel. 
+
+4- Botón detalle: permite ver el detalle de los articulos de la entrada realizada.
+
+5- Botón Eliminar: permite eliminar la entrada de esa fila, ver proceso para eliminar una entrada y su detalle.
+
+6- Ordenar columna: al darle clic a las flecha cambiará el orden de la columna si es texto se ordenará alfabéticamente y si es numérico cambiará de mayor a menor, lo mismo para las fechas.
+
+7- Panel de Navegación: este panel de navegacion nos ayuda a movernos entre los registros, mostrando solo 10 registros por página para mostrarlos de una manera fácil y comprensible." />
+                    <p class="description"><p>La pantalla muestra la tabla de Entradas con la información de cada uno.</p><p>1-  Botón Realizar entrada: desde aquí podremos acceder a agregar una nueva entrada en el sistema.</p><p>2- Botones exportación: permite copiar y exportar la información de la tabla categoría a pdf y excel a manera de reporte general.</p><p>3- Campo de búsqueda para filtrar los datos por ejemplo: si escribimos papel solo aparecen los registros que contengan papel. </p><p>4- Botón detalle: permite ver el detalle de los articulos de la entrada realizada.</p><p>5- Botón Eliminar: permite eliminar la entrada de esa fila, ver proceso para eliminar una entrada y su detalle.</p><p>6- Ordenar columna: al darle clic a las flecha cambiará el orden de la columna si es texto se ordenará alfabéticamente y si es numérico cambiará de mayor a menor, lo mismo para las fechas.</p><p>7- Panel de Navegación: este panel de navegacion nos ayuda a movernos entre los registros, mostrando solo 10 registros por página para mostrarlos de una manera fácil y comprensible.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3><span class='section-heading'>Proceso de realizar una entrada de artículos.</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Paso 1: introducir número de factura</h3>
+                    <img th:src="@{/imgs/42.jpg}" alt="Paso 1: introducir número de factura Introducimos el número de factura de la compra de artículos, este campo de número de factura tiene el formato CAI utilizado por la SAR.
+
+Nota: el en campo responsable se carga el nombre completo de la cuenta de administrador que se esta usando en ese momento." />
+                    <p class="description"><p>Introducimos el número de factura de la compra de artículos, este campo de número de factura tiene el formato CAI utilizado por la SAR.</p><p><strong>Nota:</strong> el en campo responsable se carga el nombre completo de la cuenta de administrador que se esta usando en ese momento.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3>Paso 2: elegir proveedor.</h3>
+                    <img th:src="@{/imgs/43.jpg}" alt="Paso 2: elegir proveedor.
+ Elegimos el proveedor de la lista de proveedores." />
+                    <p class="description"><p>Elegimos el proveedor de la lista de proveedores.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3>Paso 3: Buscar y Agregar un artículo a la entrada</h3>
+                    <img th:src="@{/imgs/44.jpg}" alt="Paso 3: Buscar y Agregar un artículo a la entrada
+ En el campo buscar artículo escribimos el nombre de el artículo que deseamos agregar, luego cuando aparezca deseado selecciónelo dándole clic para que este se agregue a la linea de artículos." />
+                    <p class="description"><p>En el campo buscar artículo escribimos el nombre de el artículo que deseamos agregar, luego cuando aparezca deseado selecciónelo dándole clic para que este se agregue a la linea de artículos.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3>Paso 4: introducir la información de la entrada del artículo</h3>
+                    <img th:src="@{/imgs/45.jpg}" alt="Paso 4: introducir la información de la entrada del artículo Una vez seleccionado nuestro artículo nos aparecerá en la linea de artículos donde debemos introducir la cantidad y el precio de entrada, al utilizar las flechas en precio unitario se incrementará 0,01/0.01, también se encuentra la opción de eliminar el artículo de la linea.
+
+Casilla ISV:
+Esta casilla viene marcada por defecto y nos brinda la opción de calcular el impuesto sobre venta, si el artículo esta exento podes desmarcar la casilla para que esta no calcule su impuesto.
+
+Último precio compra:
+Esta casilla nos muestra el ultimo precio de compra/entrada con el ISV si no es exento, caso contrario sin el ISV.
+Eliminar: Esta opción nos permite eliminar la linea del artículo de la entrada." />
+                    <p class="description"><p>Una vez seleccionado nuestro artículo nos aparecerá en la linea de artículos donde debemos introducir la cantidad y el precio de entrada, al utilizar las flechas en precio unitario se incrementará 0,01/0.01, también se encuentra la opción de eliminar el artículo de la linea.</p><p><strong>Casilla ISV:</strong></p><p>Esta casilla viene marcada por defecto y nos brinda la opción de calcular el impuesto sobre venta, si el artículo esta exento podes desmarcar la casilla para que esta no calcule su impuesto.</p><p><strong>Último precio compra:</strong></p><p>Esta casilla nos muestra el ultimo precio de compra/entrada con el ISV si no es exento, caso contrario sin el ISV.</p><p><strong>Eliminar:</strong> Esta opción nos permite eliminar la linea del artículo de la entrada.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3>Paso 5:</h3>
+                    <img th:src="@{/imgs/46.jpg}" alt="Paso 5: Podemos agregar los artículos que queramos a la linea de entrada siguiendo el mismo proceso que el paso 3." />
+                    <p class="description"><p>Podemos agregar los artículos que queramos a la linea de entrada siguiendo el mismo proceso que el paso 3.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3>Paso 6:</h3>
+                    <img th:src="@{/imgs/47.jpg}" alt="Paso 6: Una vez ingresados todos los datos de la entrada, damos clic al botón formulario de entrada para guardar los datos en el sistema, luego nos redireccionará a la lista de entrada y nos mostrara un mensaje Entrada creada con éxito! en la parte superior izquierda." />
+                    <p class="description"><p>Una vez ingresados todos los datos de la entrada, damos clic al botón formulario de entrada para guardar los datos en el sistema, luego nos redireccionará a la lista de entrada y nos mostrara un mensaje "Entrada creada con éxito!" en la parte superior izquierda.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3><span class='section-heading'>Módulo inventario entradas:</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Pantalla ver detalle de entrada específica.</h3>
+                    <img th:src="@{/imgs/48.jpg}" alt="Pantalla ver detalle de entrada específica. 1. Nos muestra datos generales de la entrada.
+2. PDF: Esta opción nos permite exportar a pdf la vista de detalle.
+3.Editar: Nos permite editar el número de factura y el proveedor en caso que  se ingresaran mal la información de alguno de estos campos.
+4. Aqui se muestran los articulos que se ingresaron en esta entrada específica.
+5. Botón editar-articulo: Esta opción nos permite editar el precio y la cantidad del artículo ingresado en esta entrada.
+6.Botón eliminar-articulo: Nos permite eliminar el registro del artículo en la entrada de la cual estamos viendo su detalle.
+7. Campo que muestra  el Gran total de todos los articulos ingresaods." />
+                    <p class="description"><p>1. Nos muestra datos generales de la entrada.</p><p>2. PDF: Esta opción nos permite exportar a pdf la vista de detalle.</p><p>3.Editar: Nos permite editar el número de factura y el proveedor en caso que  se ingresaran mal la información de alguno de estos campos.</p><p>4. Aqui se muestran los articulos que se ingresaron en esta entrada específica.</p><p>5. Botón editar-articulo: Esta opción nos permite editar el precio y la cantidad del artículo ingresado en esta entrada.</p><p>6.Botón eliminar-articulo: Nos permite eliminar el registro del artículo en la entrada de la cual estamos viendo su detalle.</p><p>7. Campo que muestra  el Gran total de todos los articulos ingresaods.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3><span class='section-heading'>Módulo inventario</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Editar la información de la entrada.</h3>
+                    <img th:src="@{/imgs/49.jpg}" alt="Editar la información de la entrada. 1. Al darle clic al botón editar en la parte de entrada podremos editar el número de factura y el proveedor.
+2. Botón volver: en caso de no querer continuar con la edición podemos darle clic a volver al detalle de la entrada.
+3. Botón editar: permite guardar los cambios realizado siempre y cuando el número de factura no se encuentre en la bd.
+.
+" />
+                    <p class="description"><p>1. Al darle clic al botón editar en la parte de entrada podremos editar el número de factura y el proveedor.</p><p>2. Botón volver: en caso de no querer continuar con la edición podemos darle clic a volver al detalle de la entrada.</p><p>3. Botón editar: permite guardar los cambios realizado siempre y cuando el número de factura no se encuentre en la bd.</p></p>
+                </div><div class="step">
+                <br>
+                    <h3><span class='section-heading'>Módulo inventario</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Editar la información del detalle de entrada.</h3>
+                    <img th:src="@{/imgs/50.jpg}" alt="Editar la información del detalle de entrada. 1. Al darle clic al botón editar en la parte de entrada podremos editar la cantidad, el precio, si cambiamos el valor del precio y el articulo no esta exento del ISV debemos marcar la casilla para que este sea calculado antes de guardarse.
+2. Botón volver: en caso de no querer continuar con la edición podemos darle clic a volver al detalle de la entrada.
+3. Botón editar: permite guardar los cambios realizado siempre y cuando el número de factura no se encuentre en la bd.
+" />
+                    <p class="description"><p>1. Al darle clic al botón editar en la parte de entrada podremos editar la cantidad, el precio, si cambiamos el valor del precio y el articulo no esta exento del ISV debemos marcar la casilla para que este sea calculado antes de guardarse.</p><p>2. Botón volver: en caso de no querer continuar con la edición podemos darle clic a volver al detalle de la entrada.</p></p>
+                <br>
+                <br>
+                <br><br><br>
+                </div>    
+                
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>

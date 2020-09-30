@@ -1,0 +1,45 @@
+<html lang="es" xmlns="http://thymeleaf.org">
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" name="viewport"
+	content="width-device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>
+    <header th:replace="layout/layout :: header"> </header>
+        <header class="header">
+            <h1 class="guide-title">Ayuda al usuario SGS</h1>
+            <p class="guide-description"></p>
+        </header>
+<br>
+        <section class="container">
+            <div class="step">
+                   
+                   <div th:replace="ayuda/Principal-introduccion :: indice"> 
+                    </div>
+                    <br>
+                    
+                    <br>
+                </div>
+                
+                
+       <div class="step">
+                    <h3><span class='section-heading'>Módulo de Administración:</span></h3>
+                    
+                    
+                </div><div class="step">
+                    <h3>Generar Backup del sistema</h3>
+                    <img th:src="@{/imgs/80.jpg}"  />
+                    <p class="description"><p>Nos vamos a administración y dentro de las opciones damos click a "Generar Backup del Sistema", cargara el sistema de nuevo a la pagina principal y nos desplegara un mensaje de "Backup Realizado Correctamente".</p>
+                      <br>
+                <br>
+                <br>
+                <br><br><br>
+                </div>    
+                
+                    
+        </section>
+        <footer th:replace="layout/layout :: footer"></footer>
+        <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    </body>
+</html>
